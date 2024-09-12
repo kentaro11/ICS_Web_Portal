@@ -30,6 +30,9 @@
                         <div class="input-group">
                             <span class="input-group-text"><i class="bi bi-lock"></i></span>
                             <input type="password" class="form-control" id="password" placeholder="Enter Password">
+                            <span class="input-group-text" onclick="togglePassword()">
+                            <i class="bi bi-eye-slash" id="togglePasswordIcon"></i> 
+                            </span>
                         </div>
                         <small class="form-text text-light">* Password is case sensitive</small>
                         <a href="signUp" class="text-light d-block mt-2">Forgot Password?</a>
