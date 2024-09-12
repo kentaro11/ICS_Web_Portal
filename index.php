@@ -13,8 +13,8 @@
         <div class="card shadow-lg" style="width: 50rem; height: 40rem; border-radius: 20px;">
             <div class="card-header text-center text-white position-relative">
                 <div class="z-2 rounded-top-4 overlay position-absolute top-50 start-50 translate-middle" style="width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5);"></div>
-                <img src="img/school_banner.png" alt="Background" class="card-img-top bg-header img-fluid">
-                <img src="img/ics_logo.png" alt="Logo" class="z-3 position-absolute top-50 start-50 translate-middle" style="width: 20%;">
+                <img src="img/schoolBanner.png" alt="Background" class="card-img-top bg-header img-fluid">
+                <img src="img/icsLogo.png" alt="Logo" class="z-3 position-absolute top-50 start-50 translate-middle" style="width: 20%;">
             </div>
 
             <div class="rounded-bottom-4 card-body form-body text-white">
