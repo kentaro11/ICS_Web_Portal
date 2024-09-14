@@ -161,7 +161,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="row copyright-section rounded-bottom-5" style="margin: 0;">
+                    <div class="row copyright-section rounded-bottom-4" style="margin: 0;">
                         <div class="col-md-12">
                             <p class="text-center fw-bold mt-3">Copyright © Ibaan Central School</p>
                         </div>
