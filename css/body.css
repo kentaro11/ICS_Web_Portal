@@ -39,10 +39,6 @@
     background-color: var(--white-hover);
 }
 
-.menu-btn:focus {
-    background-color: var(--white-hover);
-}
-
 .menu-icon {
     font-size: 2.5rem;
 }
