@@ -54,8 +54,9 @@
 }
 
 .mission-title, .vision-title {
-    font-size: var(--header3);
     color: var(--gold);
+    font-size: var(--header3);
+    font-weight: bold;;
 }
 
 .mission-text, .vision-text {
@@ -78,8 +79,9 @@
 }
 
 .announcement-title {
-    font-size: var(--header3);
     color: var(--gold);
+    font-size: var(--header3);
+    font-weight: bold;
 }
 
 .announcement-text, .name-text {
