@@ -26,7 +26,7 @@
                         <div class="col-md-12">
                             <div class="logo-section d-flex flex-row align-items-center position-absolute top-0 start-0">
                                 <img src="../img/icsLogo.png" class="img-fluid" alt="Logo">
-                                <p class="header-title">Ibaan Central School - Guidance Portal</p>
+                                <p class="header-title">Ibaan Central School - Principal Portal</p>
                             </div>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                                 <div class="student-info d-flex flex-column justify-content-center">
                                     <p class="info-bold text-start">DELA CRUZ, JUAN C.</p>
                                     <p class="info-text text-start">ID (123456)</p>
-                                    <p class="info-text text-start">Guidance Counselor</p>
+                                    <p class="info-text text-start">Principal IV</p>
                                 </div>
                             </div>
                         </div>
@@ -57,13 +57,11 @@
 
         <!-- Body Container  -->
         <div class="row mt-3">
-            <div class="col-md-3" style="height: 520px;">
+            <div class="col-md-3">
                 <!-- Menu Bar -->
-                <div class="menu d-flex flex-column rounded-4 row-gap-4 p-4">
+                <div class="menu d-flex flex-column rounded-4 row-gap-4 p-4" style="height: 520px;">
                     <a type="button" class="text-break d-flex flex-row align-items-center btn menu-btn btn-primary rounded-2"><iconify-icon class="menu-icon ph-icon" icon="iconoir:megaphone"></iconify-icon><span style="margin: 0 0 0 10px;">Announcement</span></a>
-                    <a type="button" class="text-break d-flex flex-row align-items-center btn menu-btn btn-primary rounded-2"><iconify-icon class="menu-icon ph-icon" icon="iconoir:notes"></iconify-icon><span style="margin: 0 0 0 10px;">Enrollment</span></a>
                     <a type="button" class="text-break d-flex flex-row align-items-center btn menu-btn btn-primary rounded-2"><iconify-icon class="menu-icon ph-icon" icon="ant-design:dashboard-outlined"></iconify-icon><span style="margin: 0 0 0 10px;">Dashboard</span></a>
-                    <a type="button" class="text-break d-flex flex-row align-items-center btn menu-btn btn-primary rounded-2"><iconify-icon class="menu-icon ph-icon" icon="material-symbols:list-alt-outline"></iconify-icon><span style="margin: 0 0 0 10px;">Student Record</span></a>
                 </div>
             </div>
             <div class="col-md-4">
