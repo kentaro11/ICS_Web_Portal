@@ -59,9 +59,9 @@
 
         <!-- Body Container  -->
         <div class="row mt-3">
-            <div class="col-md-3" style="height: 520px;">
+            <div class="col-md-3">
                 <!-- Menu Bar -->
-                <div class="menu d-flex flex-column rounded-4 row-gap-4 p-4">
+                <div class="menu d-flex flex-column rounded-4 row-gap-4 p-4"  style="height: 520px;">
                     <a type="button" class="text-break d-flex flex-row align-items-center btn menu-btn btn-primary rounded-2"><i class="menu-icon bi bi-calendar"></i><span style="margin: 0 0 0 10px;">Class Schedule</span></a>
                     <a type="button" class="text-break d-flex flex-row align-items-center btn menu-btn btn-primary rounded-2"><i class="menu-icon bi bi-list-check"></i><span style="margin: 0 0 0 10px;">Grades</span></a>
                     <a type="button" class="text-break d-flex flex-row align-items-center btn menu-btn btn-primary rounded-2"><iconify-icon class="menu-icon ph-icon" icon="ph:pen"></iconify-icon><span style="margin: 0 0 0 10px;">School Materials</span></a>
