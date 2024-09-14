@@ -37,10 +37,10 @@
                             <div class="student-section d-flex flex-row position-absolute bottom-0 start-0">
                                 <img src="../img/avatar.jpg" class="avatar" alt="Profile" style="width: 11%; height: 11%;">
                                 <div class="student-info d-flex flex-column justify-content-center">
-                                    <p class="parent-info text-start">DELA CRUZ, JUAN C.</p>
-                                    <p class="student-info text-start">Dela Cruz, Juan C.</p>
-                                    <p class="student-info text-start">LRN (123456789012)</p>
-                                    <p class="student-info text-start">Grade 1 - Hope</p>
+                                    <p class="info-bold text-start">DELA CRUZ, JUAN C.</p>
+                                    <p class="info-text text-start">Dela Cruz, Juan C.</p>
+                                    <p class="info-text text-start">LRN (123456789012)</p>
+                                    <p class="info-text text-start">Grade 1 - Hope</p>
                                     <p class="en-status text-start">ENROLLED</p>
                                 </div>
                             </div>
@@ -143,36 +143,34 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Footer -->
-            <div class="row mt-3 mb-4">
-                <div class="col-md-12 shadow-lg rounded-4">
-                    <footer>
-                        <div class="row">
-                            <div class="col-md-12 d-flex justify-content-center mt-5" style="column-gap: 70px;">
-                                <img src="../img/kneLogo.png" class="img-fluid footer-logo" alt="kne">
-                                <img src="../img/dobLogo.png" class="img-fluid footer-logo" alt="dob" style="height: 95%">
-                                <img src="../img/icsLogo.png" class="img-fluid footer-logo" alt="ics">
-                            </div>
+        </div>
+        <!-- Footer -->
+        <div class="row mt-3 mb-4">
+            <div class="col-md-12">
+                <footer class="shadow-lg rounded-4">
+                    <div class="row">
+                        <div class="col-md-12 d-flex justify-content-center mt-5" style="column-gap: 70px;">
+                            <img src="../img/kneLogo.png" class="img-fluid footer-logo" alt="kne">
+                            <img src="../img/dobLogo.png" class="img-fluid footer-logo" alt="dob" style="height: 95%">
+                            <img src="../img/icsLogo.png" class="img-fluid footer-logo" alt="ics">
                         </div>
-                        <div class="row school-section">
-                            <div class="col-md-12">
-                                <ul class="d-flex flex-row justify-content-center mt-5 list-inline" style="column-gap: 15%;">
-                                    <li class="d-flex flex-row align-items-center"><iconify-icon class="iconify-footer" icon="ri:facebook-circle-line"></iconify-icon><span style="margin: 0 0 0 10px;">Ibaan Central School</span></li>
-                                    <li class="d-flex flex-row align-items-center"><iconify-icon class="iconify-footer" icon="iconamoon:location-pin"></iconify-icon><span style="margin: 0 0 0 10px;">R4FM+5H5, Poblacion Rd, Ibaan, Batangas</span></li>
-                                    <li class="d-flex flex-row align-items-center"><iconify-icon class="iconify-footer" icon="ph:phone"></iconify-icon><span style="margin: 0 0 0 10px;">(043) 702 - 3669</span></li>
-                                </ul>
-                            </div>
+                    </div>
+                    <div class="row school-section">
+                        <div class="col-md-12">
+                            <ul class="d-flex flex-row justify-content-center mt-5 list-inline" style="column-gap: 15%;">
+                                <li class="d-flex flex-row align-items-center"><iconify-icon class="iconify-footer" icon="ri:facebook-circle-line"></iconify-icon><span style="margin: 0 0 0 10px;">Ibaan Central School</span></li>
+                                <li class="d-flex flex-row align-items-center"><iconify-icon class="iconify-footer" icon="iconamoon:location-pin"></iconify-icon><span style="margin: 0 0 0 10px;">R4FM+5H5, Poblacion Rd, Ibaan, Batangas</span></li>
+                                <li class="d-flex flex-row align-items-center"><iconify-icon class="iconify-footer" icon="ph:phone"></iconify-icon><span style="margin: 0 0 0 10px;">(043) 702 - 3669</span></li>
+                            </ul>
                         </div>
-                        <div class="row copyright-section rounded-bottom-4">
-                            <div class="col-md-12">
-                                <p class="text-center fw-bold mt-3">Copyright © Ibaan Central School</p>
-                            </div>
+                    </div>
+                    <div class="row copyright-section rounded-bottom-5" style="margin: 0;">
+                        <div class="col-md-12">
+                            <p class="text-center fw-bold mt-3">Copyright © Ibaan Central School</p>
                         </div>
-                    </footer>
-                </div>
+                    </div>
+                </footer>
             </div>
-
         </div>
     </div>
 </body>
