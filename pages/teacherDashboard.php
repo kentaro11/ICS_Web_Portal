@@ -65,16 +65,16 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="mv-scroll rounded-4 p-2" style="height: 520px">
+                <div class="mv-scroll rounded-4" style="height: 520px">
                     <!-- Mission and Vision  -->
                     <div class="mission-vision rounded-4 p-4 overflow-auto" style="height: 440px;">
-                        <p class="mission-title fw-bold text-center p-2">MISSION</p>
+                        <p class="mission-title text-center p-2">MISSION</p>
                         <div class="mission-container overflow-auto">
                             <p class="mission-text text-break lh-1 rounded-2 p-3">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                             </p>
                         </div>
-                        <p class="vision-title  fw-bold text-center p-2">VISION</p>
+                        <p class="vision-title text-center p-2">VISION</p>
                         <div class="vision-container">
                             <p class="vision-text text-break lh-1 rounded-2 p-3">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
@@ -90,7 +90,7 @@
             <!-- Announcement  -->
             <div class="col-md-5">
                 <div class="announcement-scroll rounded-4 p-4" style="height: 520px">
-                    <p class="announcement-title fs-4 fw-bold text-center p-2">ANNOUNCEMENT</p>
+                    <p class="announcement-title text-center p-2">ANNOUNCEMENT</p>
                     <div class="announcement overflow-scroll" style="height: 383px; overflow-x: hidden !important; padding-left: 20px">
                         <div class="row announcement-section rounded-2 overflow-hidden" style="height: 300px; width: 100%;">
                             <div class="col">
