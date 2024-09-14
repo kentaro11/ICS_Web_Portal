@@ -65,7 +65,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="mv-scroll rounded-4" style="height: 520px">
+                <div class="mv-scroll rounded-4 p-2" style="height: 520px">
                     <!-- Mission and Vision  -->
                     <div class="mission-vision rounded-4 p-4 overflow-auto" style="height: 440px;">
                         <p class="mission-title text-center p-2">MISSION</p>
