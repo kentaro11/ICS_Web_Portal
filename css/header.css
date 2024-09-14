@@ -30,12 +30,12 @@ p {
     font-weight: bold;
 }
 
-.parent-info {
-    font-size: var(--subheader1);
+.info-bold {
+    font-size: var(--header3);
     font-weight: bold;
 }
 
-.student-info {
+.info-text {
     font-size: var(--subheader2);
 }
 
