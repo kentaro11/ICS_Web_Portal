@@ -14,3 +14,27 @@
     --subheader3: 14px;
     --subheader4: 12px;
 }
+
+.table-container {
+    padding: 20px;
+    background-color: #f8f9fa;
+    height: 100vh;
+  }
+
+.search-bar {
+    margin-bottom: 20px;
+  }
+
+.search-bar input {
+    width: 100%;
+  }
+
+.icon-btn {
+    background: none;
+    border: none;
+  }
+  
+.icon-btn img {
+    width: 24px;
+    height: 24px;
+  }
