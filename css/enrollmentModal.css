@@ -18,7 +18,7 @@
 .form-section {
     max-width: 600px;
     margin: 50px auto;
-    background-color: #d6d6d6;
+    background-color: var(--white);
     padding: 30px;
     border-radius: 10px;
   }
