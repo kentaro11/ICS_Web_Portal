@@ -17,9 +17,9 @@ body {
     z-index: 0;
 }
   
-.form-body {
+.card-body {
     background-color: var(--maroon);
-    padding: 8% 0 0 0;
+    padding: 8% 0 8% 0;
 }
 
 .bi-lock, .bi-person {
