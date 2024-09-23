@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ICS - Parent Dashboard</title>
+    <title>ICS - Guidance Dashboard</title>
     <?php include "../partials/head.php" ?>
     <?php include "../modal/announcementModal.php" ?>
     <?php include "../modal/enrollmentModal.php" ?>
