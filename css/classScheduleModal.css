@@ -14,13 +14,3 @@
     --subheader3: 14px;
     --subheader4: 12px;
 }
-
-.modal-title {
-    font-size: var(--header3);
-    font-weight: bold;
-}
-
-.btn-close {
-    margin: 0 !important;
-}
-
