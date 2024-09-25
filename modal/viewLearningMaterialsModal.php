@@ -18,31 +18,31 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="cert-card">
-                        <div class="cert-card-text">
+                    <div class="material-card">
+                        <div class="material-card-text">
                             <strong>Chapter 1 - English Module</strong>
                         </div>
-                        <div class="cert-card-icon">
+                        <div class="material-card-icon">
                             <a href="#" download>
                                 <i class="bi bi-download"></i>
                             </a>
                         </div>
                     </div>
-                    <div class="cert-card">
+                    <div class="material-card">
                         <div class="cert-card-text">
                             <strong>Chapter 1 - Science Module</strong>
                         </div>
-                        <div class="cert-card-icon">
+                        <div class="material-card-icon">
                             <a href="#" download>
                                 <i class="bi bi-download"></i>
                             </a>
                         </div>
                     </div>
-                    <div class="cert-card">
-                        <div class="cert-card-text">
+                    <div class="material-card">
+                        <div class="material-card-text">
                             <strong>Chapter 1 - Math Module</strong>
                         </div>
-                        <div class="cert-card-icon">
+                        <div class="material-card-icon">
                             <a href="#" download>
                                 <i class="bi bi-download"></i>
                             </a>
