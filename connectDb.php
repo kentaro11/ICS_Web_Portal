@@ -1,12 +1,11 @@
 <?php
-    $server_name = "localhost:3308";
-    $username = "root";
-    $password = "";
-    $db_name = "ics_db";
-
-    $conn = mysqli_connect($server_name, $username, $password, $db_name);
-
-    if (!$conn) {
-        die("Connection Failed!".mysqli_connect_error());
-    } 
+    $host     = 'localhost:3308';
+    $username = 'root';
+    $password = '';
+    $dbname   ='ics_db';
+    
+    $conn = new mysqli($host, $username, $password, $dbname);
+    if(!$conn){
+        die("Cannot connect to the database.". $conn->error);
+    }
 ?>   
