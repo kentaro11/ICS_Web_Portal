@@ -11,7 +11,7 @@
 <body>
     <!-- Modal -->
     <div class="modal fade modal-xl" id="gradesModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title" id="staticBackdropLabel">GRADES</h1>
