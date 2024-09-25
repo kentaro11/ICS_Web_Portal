@@ -11,16 +11,16 @@
 <body>
   <!-- Modal -->
   <div class="modal fade modal-xl" id="classScheduleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header justify-content-center" style="border-bottom: none;">
           <h1 class="modal-title" id="staticBackdropLabel">CLASS SCHEDULE</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close position-absolute top-0 end-0" style="top: 10px !important; right: 10px !important;" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <!-- Table -->
-          <table class="table table-bordered rounded">
-            <thead>
+          <table class="table table-bordered text-center">
+            <thead style="background-color: var(--gold);">
               <tr>
                 <th>Time</th>
                 <th>Monday</th>
