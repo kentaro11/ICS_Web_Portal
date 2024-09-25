@@ -8,6 +8,8 @@
     <?php include "../partials/head.php" ?>
     <?php include "../modal/classScheduleModal.php" ?>
     <?php include "../modal/gradesModal.php" ?>
+    <?php include "../modal/viewEcertificateModal.php" ?>
+    <?php include "../modal/viewLearningMaterialsModal.php" ?>
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/body.css">
     <link rel="stylesheet" href="../css/footer.css">
@@ -66,8 +68,8 @@
                 <div class="menu d-flex flex-column rounded-4 row-gap-4 p-4" style="height: 520px;">
                     <a type="button" class="text-break d-flex flex-row align-items-center btn menu-btn btn-primary rounded-2" data-bs-toggle="modal" data-bs-target="#classScheduleModal"><i class="menu-icon bi bi-calendar"></i><span style="margin: 0 0 0 10px;">Class Schedule</span></a>
                     <a type="button" class="text-break d-flex flex-row align-items-center btn menu-btn btn-primary rounded-2" data-bs-toggle="modal" data-bs-target="#gradesModal"><i class="menu-icon bi bi-list-check"></i><span style="margin: 0 0 0 10px;">Grades</span></a>
-                    <a type="button" class="text-break d-flex flex-row align-items-center btn menu-btn btn-primary rounded-2"><iconify-icon class="menu-icon ph-icon" icon="ph:pen"></iconify-icon><span style="margin: 0 0 0 10px;">School Materials</span></a>
-                    <a type="button" class="text-break d-flex flex-row align-items-center btn menu-btn btn-primary rounded-2"><iconify-icon class="menu-icon ph-icon" icon="ph:certificate"></iconify-icon><span style="margin: 0 0 0 10px;">eCertificate</span></a>
+                    <a type="button" class="text-break d-flex flex-row align-items-center btn menu-btn btn-primary rounded-2" data-bs-toggle="modal" data-bs-target="#viewMaterialsModal"><iconify-icon class="menu-icon ph-icon" icon="ph:pen"></iconify-icon><span style="margin: 0 0 0 10px;">School Materials</span></a>
+                    <a type="button" class="text-break d-flex flex-row align-items-center btn menu-btn btn-primary rounded-2" data-bs-toggle="modal" data-bs-target="#viewEcertModal"><iconify-icon class="menu-icon ph-icon" icon="ph:certificate"></iconify-icon><span style="margin: 0 0 0 10px;">eCertificate</span></a>
                 </div>
 
             </div>
