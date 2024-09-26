@@ -14,15 +14,3 @@
     --subheader3: 14px;
     --subheader4: 12px;
 }
-
-.form-section {
-    max-width: 600px;
-    margin: 50px auto;
-    background-color: var(--white);
-    padding: 30px;
-    border-radius: 10px;
-  }
-  .form-container h1 {
-    text-align: center;
-    margin-bottom: 30px;
-  }
