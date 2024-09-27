@@ -37,7 +37,7 @@ $(document).ready(function () {
         $("#section").append("<option selected>Select</option>");
         $.each(response, function (index, section) {
           // Ensure the correct syntax here
-          $("#sectionFilter").append(
+          $("#section").append(
             '<option value="' +
               section.section_id +
               '">' +
