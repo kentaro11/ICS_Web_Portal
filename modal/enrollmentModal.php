@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="../css/modal.css">
 <script src="../js/gradeLevel.js"></script>
-<script src="../js/gradeLevelFilter.js"></script>
 <script src="../js/studentIdInput.js"></script>
 <script src="../js/enrollAlert.js"></script>
 
@@ -143,48 +142,9 @@
 
                     <!-- Pending Tab -->
                     <div class="tab-pane fade" id="pending" role="tabpanel" aria-labelledby="pending-tab">
-                        <div class="m-2">
-                            <form id="filterForm" class="mb-3">
-                                <div class="row">
-                                    <!-- Search Name Input -->
-                                    <div class="col-md-4">
-                                        <input type="text" id="fullName" name="full_name" class="form-control" placeholder="Search Name">
-                                    </div>
-                                    <!-- Filter Icon -->
-                                    <div class="col-md-8">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <button type="button" class="btn btn-secondary position-absolute end-0" data-bs-toggle="collapse" data-bs-target="#filterOptions" style="margin: 0 30px 0 0;">
-                                                    <i class="fas fa-filter"></i> Filter
-                                                </button>
-                                            </div>
-                                            <div class="col-md-6 collapse" id="filterOptions">
-                                                <div class="row" style="margin: 0 90px 0 0;">
-                                                    <!-- Grade Level Filter -->
-                                                    <div class="col-md-6">
-                                                        <select class="form-select" id="gradeLevelFilter" name="grade_level_filter">
-                                                            <option value="">Grade Level</option>
-                                                            <!-- Dynamic grade level options from DB -->
-                                                        </select>
-                                                    </div>
+                        <div class="table-responsive m-2 overflow-y-scroll">
 
-                                                    <!-- Section Filter -->
-                                                    <div class="col-md-6">
-                                                        <select class="form-select" id="sectionFilter" name="section_name_filter">
-                                                            <option value="">Section</option>
-                                                            <!-- Dynamic section options from DB -->
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-
-                        </div>
-                        <div class="table-responsive m-2 overflow-y-scroll" style="height: 450px;">
-                            <table class="table text-center">
+                            <table id="dataTable" class="table">
                                 <thead>
                                     <tr>
                                         <th>Name</th>
@@ -193,7 +153,7 @@
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody id="tableBody">
+                                <tbody id="tableBody" id="dataTable" style="max-height: 400px;">
                                     <?php
                                     include "../connectDb.php";
 
@@ -215,7 +175,18 @@
                                             echo "<td>" . htmlspecialchars($row['full_name']) . "</td>";
                                             echo "<td>" . htmlspecialchars($row['grade_level']) . "</td>";
                                             echo "<td>" . htmlspecialchars($row['section_name']) . "</td>";
-                                            echo "<td><button class='btn btn-primary'>Add LRN</button></td>";
+                                            echo "<td>
+                                                    <button class='btn btn-primary add-lrn-btn' 
+                                                            data-student-id='" . $row['student_id_lrn'] . "' 
+                                                            data-bs-toggle='collapse' 
+                                                            href='#collapseExample' 
+                                                            role='button' 
+                                                            aria-expanded='false' 
+                                                            aria-controls='collapseExample'
+                                                            onclick='setStudentId(" . $row['student_id_lrn'] . ")'>
+                                                        Add LRN
+                                                    </button>
+                                                </td>";
                                             echo "</tr>";
                                         }
                                     } else {
@@ -225,6 +196,32 @@
 
                                 </tbody>
                             </table>
+                            <div class="collapse" id="collapseExample">
+                                <div class="card card-body position-absolute top-50 start-50 translate-middle" style="width: 400px;">
+                                    <form action="../function/addStudentAccount.php" method="POST" enctype="multipart/form-data">
+                                        <div class="col">
+                                            <label for="studentLrn" class="form-label">LRN</label>
+                                            <input type="number" class="form-control" id="studentLrn" name="student_lrn"
+                                                pattern="^\d{12}$"
+                                                required title="LRN must be exactly 12 digits"
+                                                maxlength="12"
+                                                oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                                        </div>
+                                        <div class="col">
+                                            <label for="studentPassword" class="form-label">Password</label>
+                                            <input type="password" class="form-control" id="password" name="password" required minlength="8" title="Password must be at least 8 characters long">
+                                        </div>
+                                        <div class="col">
+                                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                            <input type="password" class="form-control" id="confirmPassword" name="confirm_password" required>
+                                        </div>
+                                        <input type="hidden" id="student_id_lrn" name="student_id_lrn" value="">
+                                        <div class="col mt-3">
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -234,37 +231,12 @@
 </div>
 
 <script>
-    document.getElementById('fullName').addEventListener('input', filterData);
-    document.getElementById('gradeLevelFilter').addEventListener('change', filterData);
-    document.getElementById('sectionFilter').addEventListener('change', filterData);
-
-    function filterData() {
-        // Get the input and filter values
-        const fullName = document.getElementById('fullName').value.trim();
-        const gradeLevel = document.getElementById('gradeLevelFilter').value;
-        const sectionName = document.getElementById('sectionFilter').value;
-
-        // Treat "Grade Level" and "Section" defaults as empty
-        const gradeLevelFilter = (gradeLevel === "Grade Level" || gradeLevel === "") ? '' : gradeLevel;
-        const sectionFilter = (sectionName === "Section" || sectionName === "") ? '' : sectionName;
-
-        // Log the filter values for debugging
-        console.log("Filter Values:", {
-            fullName,
-            gradeLevelFilter,
-            sectionFilter
+    $(document).ready(function() {
+        $('#dataTable').DataTable({
+            "paging": false, // Enables pagination
+            "searching": true, // Enables searching
+            "ordering": true, // Enables column sorting
+            "info": true, // Displays information about the table
         });
-
-        // Create the query string
-        const queryString = `full_name=${encodeURIComponent(fullName)}&grade_level_filter=${encodeURIComponent(gradeLevelFilter)}&section_name_filter=${encodeURIComponent(sectionFilter)}`;
-
-        // Fetch the filtered data from the server
-        fetch(`../function/filterPendingStudent.php?${queryString}`)
-            .then(response => response.text())
-            .then(data => {
-                // Update the table body with the new data
-                document.getElementById('tableBody').innerHTML = data;
-            })
-            .catch(error => console.error('Error fetching data:', error));
-    }
+    });
 </script>
