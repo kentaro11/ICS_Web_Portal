@@ -7,8 +7,8 @@
     <title>ICS - Guidance Dashboard</title>
     <?php include "../partials/head.php" ?>
     <?php include "../modal/announcementModal.php" ?>
-    <?php include "../modal/enrollmentModal.php" ?>
     <?php include "../modal/studentRecordModal.php" ?>
+    <?php include "../modal/enrollmentModal.php" ?>
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/body.css">
     <link rel="stylesheet" href="../css/footer.css">
