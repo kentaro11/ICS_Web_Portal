@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="../css/modal.css">
 
 <!-- Modal -->
-<div class="modal fade modal-xl" id="studentRecordModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade modal-xl" id="studentRecordModal" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="height: 700px !important;">
             <div class="modal-header justify-content-center" style="border-bottom: none; height: 100px !important; padding: 0 !important;">
