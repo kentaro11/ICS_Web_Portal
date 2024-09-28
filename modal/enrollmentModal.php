@@ -142,9 +142,9 @@
 
                     <!-- Pending Tab -->
                     <div class="tab-pane fade" id="pending" role="tabpanel" aria-labelledby="pending-tab">
-                        <div class="table-responsive m-2 overflow-y-scroll">
+                        <div class="table-responsive m-2">
 
-                            <table id="dataTable" class="table">
+                            <table id="pendingTable" class="table">
                                 <thead>
                                     <tr>
                                         <th>Name</th>
@@ -232,11 +232,12 @@
 
 <script>
     $(document).ready(function() {
-        $('#dataTable').DataTable({
-            "paging": false, // Enables pagination
+        $('#pendingTable').DataTable({
+            "paging": true, // Enables pagination
             "searching": true, // Enables searching
-            "ordering": true, // Enables column sorting
-            "info": true, // Displays information about the table
+            "ordering": false, // Enables column sorting
+            "info": true,// Displays information about the table
+            "select": true,
         });
     });
 </script>
