@@ -11,10 +11,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $upload_dir = '../announcement/'; // Ensure this directory exists and is writable
     $announcement_file = $upload_dir . basename($_FILES['announcement_file']['name']);
 
-    if (!move_uploaded_file($_FILES['announcement_file']['tmp_name'], $announcement_file)) {
-        die("Error uploading files.");
-    }
-
     // Begin transaction to ensure data integrity
     $conn->begin_transaction();
 
