@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="../css/modal.css">
 <script src="../js/gradeLevel.js"></script>
-<script src="../js/studentIdInput.js"></script>
+<script src="../js/getId.js"></script>
 <script src="../js/enrollAlert.js"></script>
 
 <div class="modal fade modal-xl" id="enrollmentModal" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -176,8 +176,7 @@
                                             echo "<td>" . htmlspecialchars($row['grade_level']) . "</td>";
                                             echo "<td>" . htmlspecialchars($row['section_name']) . "</td>";
                                             echo "<td>
-                                                    <button class='btn btn-primary add-lrn-btn' 
-                                                            data-student-id='" . $row['student_id_lrn'] . "' 
+                                                    <button class='btn btn-primary add-lrn-btn'
                                                             data-bs-toggle='collapse' 
                                                             href='#collapseExample' 
                                                             role='button' 
