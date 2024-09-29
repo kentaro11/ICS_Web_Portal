@@ -3,7 +3,7 @@
 <!-- Modal -->
 <div class="modal fade modal-xl" id="announcementModal" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content" style="height: 450px !important;">
+        <div class="modal-content" style="height: 600px !important;">
             <div class="modal-header justify-content-center" style="border-bottom: none; height: 100px !important; padding: 0 !important;">
                 <h1 class="modal-title" id="staticBackdropLabel">ANNOUNCEMENT</h1>
                 <button type="button" class="btn-close position-absolute top-0 end-0" style="top: 25px !important; right: 25px !important;" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -26,11 +26,13 @@
                             </div>
 
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="announcementText" placeholder="Type Text" name="announcement_text" required>
+                                <textarea type="text" class="form-control" id="announcementText"
+                                placeholder="Type Text" name="announcement_text" 
+                                style="height: 200px;" required></textarea>
                             </div>
 
                             <div class="mb-3">
-                                <input class="form-control" type="file" id="announcementFile" name="announcement_file" required>
+                                <input class="form-control" type="file" id="announcementFile" name="announcement_file">
                             </div>
 
                             <div class="mb-3">
