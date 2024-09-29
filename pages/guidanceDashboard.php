@@ -7,6 +7,7 @@
     <title>ICS - Guidance Dashboard</title>
     <?php include "../partials/head.php" ?>
     <?php include "../modal/announcementModal.php" ?>
+    <?php include "../modal/viewAnnouncementModal.php" ?>
     <?php include "../modal/studentRecordModal.php" ?>
     <?php include "../modal/enrollmentModal.php" ?>
     <link rel="stylesheet" href="../css/header.css">
@@ -65,7 +66,7 @@
                 <div class="menu d-flex flex-column rounded-4 row-gap-4 p-4" style="height: 520px;">
                     <a type="button" class="text-break d-flex flex-row align-items-center btn menu-btn btn-primary rounded-2" data-bs-toggle="modal" data-bs-target="#announcementModal"><iconify-icon class="menu-icon ph-icon" icon="iconoir:megaphone"></iconify-icon><span style="margin: 0 0 0 10px;">Announcement</span></a>
                     <a type="button" class="text-break d-flex flex-row align-items-center btn menu-btn btn-primary rounded-2" data-bs-toggle="modal" data-bs-target="#enrollmentModal"><iconify-icon class="menu-icon ph-icon" icon="iconoir:notes"></iconify-icon><span style="margin: 0 0 0 10px;">Enrollment</span></a>
-                    <a type="button" class="text-break d-flex flex-row align-items-center btn menu-btn btn-primary rounded-2" ><iconify-icon class="menu-icon ph-icon" icon="ant-design:dashboard-outlined"></iconify-icon><span style="margin: 0 0 0 10px;">Dashboard</span></a>
+                    <a type="button" class="text-break d-flex flex-row align-items-center btn menu-btn btn-primary rounded-2"><iconify-icon class="menu-icon ph-icon" icon="ant-design:dashboard-outlined"></iconify-icon><span style="margin: 0 0 0 10px;">Dashboard</span></a>
                     <a type="button" class="text-break d-flex flex-row align-items-center btn menu-btn btn-primary rounded-2" data-bs-toggle="modal" data-bs-target="#studentRecordModal"><iconify-icon class="menu-icon ph-icon" icon="material-symbols:list-alt-outline"></iconify-icon><span style="margin: 0 0 0 10px;">Student Record</span></a>
                 </div>
             </div>
@@ -96,51 +97,62 @@
             <div class="col-md-5">
                 <div class="announcement-scroll rounded-4 p-4" style="height: 520px">
                     <p class="announcement-title fs-4 fw-bold text-center p-2">ANNOUNCEMENT</p>
-                    <div class="announcement overflow-scroll" style="height: 383px; overflow-x: hidden !important; padding-left: 20px">
-                        <div class="row announcement-section rounded-2 overflow-hidden" style="height: 300px; width: 100%;">
-                            <div class="col">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <img src="../img/avatar.jpg" class="mt-3" alt="Profile" style="width: 70%; border-radius: 50%; margin-left: 20px;">
-                                    </div>
-                                    <div class="col-md-9 mt-4">
-                                        <p class="name-text fw-bold">Dr. ALBERTO M. DE CHAVEZ</p>
-                                        <p class="name-text">Principal IV</p>
-                                        <p class="name-text fst-italic">Jan. 01, 2024</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <p class="announcement-text text-break lh-1 rounded-2 px-5 pb-2">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row announcement-section rounded-2 overflow-hidden mt-3" style="height: 300px; width: 100%;">
-                            <div class="col">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <img src="../img/avatar.jpg" class="mt-3" alt="Profile" style="width: 70%; border-radius: 50%; margin-left: 20px;">
-                                    </div>
-                                    <div class="col-md-9 mt-4">
-                                        <p class="name-text fw-bold">Dr. ALBERTO M. DE CHAVEZ</p>
-                                        <p class="name-text">Principal IV</p>
-                                        <p class="name-text fst-italic">Jan. 01, 2024</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="p-2">
-                                        <p class="announcement-text text-break lh-1 rounded-2 px-5 pb-2">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="announcement overflow-y-scroll" style="height: 383px;">
+                        <?php
+                        include "../connectDb.php";
 
+                        // Initialize query with base SQL
+                        $query = "SELECT * FROM announcements ORDER BY created_at DESC LIMIT 2";
+                        $result = mysqli_query($conn, $query);
+
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                        ?>
+                                <div class="row mx-1 mb-3 rounded-3 p-3" style="background-color: var(--white);">
+                                    <div class="col-md-12 mt-2">
+                                        <div class="row align-items-center">
+                                            <div class="col-6" style="width: 100px;">
+                                                <img src="../img/avatar.jpg" alt="profilePic" style="width: 70px;">
+                                            </div>
+                                            <div class="col-6">
+                                                <strong>JUAN C. DELA CRUZ</strong><br>
+                                                <span>Guidance Counselor</span><br>
+                                                <span class="fst-italic"><?php echo htmlspecialchars($row['created_at']); ?></span>
+                                            </div>
+                                        </div>
+                                        <div class="row px-5 pt-4">
+                                            <p class="fw-bold lh-base" style="color: black;"><?php echo htmlspecialchars($row['title']); ?></p>
+                                            <p class="lh-base text-truncate" style="color: black; white-space: pre-wrap; height: 18px;"><?php echo htmlspecialchars($row['announcement_text']); ?></p>
+                                        </div>
+                                        <div class="row px-5 pb-4 justify-content-center">
+                                            <?php
+                                            $file_path = htmlspecialchars($row['announcement_file']);
+                                            // Check if the file path is not null and not the empty directory path
+                                            if (!is_null($file_path) && $file_path !== '../announcement/') {
+                                                if (file_exists($file_path)) {
+                                            ?>
+                                                    <img class="img-thumbnail" src="<?php echo htmlspecialchars($row['announcement_file']); ?>" alt="announcementFile">
+                                                <?php
+                                                } else {
+                                                ?>
+                                                    <p>File not found: <?php echo $file_path; ?></p>'
+                                            <?php
+                                                }
+                                            }
+                                            ?>
+                                        </div>
+                                    </div>
+                                </div>
+                        <?php
+                            }
+                        } else {
+                            echo "<p>No announcements available.</p>";
+                        }
+                        ?>
                     </div>
+
                     <div class="text-center mt-4">
-                        <a href="" class="expand text-decoration-none">View More</a>
+                        <a type="button" class="expand text-decoration-none" data-bs-toggle="modal" data-bs-target="#viewAnnouncementModal">View More</a>
                     </div>
                 </div>
             </div>
