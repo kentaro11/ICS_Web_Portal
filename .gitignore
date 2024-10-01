@@ -1,2 +1,5 @@
 uploads/
 announcement/
+vendor/
+composer.json
+composer.lock
