@@ -27,7 +27,7 @@
 }
 
 .menu-btn {
-    height: 100px;
+    min-height: 100px;
     background-color: var(--white);
     color: var(--black);
     border: none;
