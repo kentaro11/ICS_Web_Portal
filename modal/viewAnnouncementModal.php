@@ -93,7 +93,7 @@
                 </div>
 
                 <!-- Edit Announcement -->
-                <div class="collapse" id="collapseExample">
+                <div class="fade" id="collapseExample">
                     <div class="card card-body position-absolute top-50 start-50 translate-middle" style="width: 900px; height: 350px;">
                         <form action="../function/editAnnouncement.php" method="POST" enctype="multipart/form-data" onsubmit="cleanTextBeforeSubmit()">
                             <input type="hidden" id="editAnnouncementId" name="announcement_id" value="">
