@@ -10,7 +10,8 @@
     <?php include "../modal/viewAnnouncementModal.php" ?>
     <?php include "../modal/studentRecordModal.php" ?>
     <?php include "../modal/enrollmentModal.php" ?>
-    <?php include "../modal/viewMissionVision.php" ?>
+    <?php include "../modal/viewMissionVisionModal.php" ?>
+    <?php include "../modal/uploadScheduleModal.php" ?>
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/body.css">
     <link rel="stylesheet" href="../css/footer.css">
@@ -64,18 +65,20 @@
         <div class="row mt-3">
             <div class="col-md-3">
                 <!-- Menu Bar -->
-                <div class="menu d-flex flex-column rounded-4 row-gap-4 p-4" style="height: 520px;">
-                    <a type="button" class="text-break d-flex flex-row align-items-center btn menu-btn btn-primary rounded-2" data-bs-toggle="modal" data-bs-target="#announcementModal"><iconify-icon class="menu-icon ph-icon" icon="iconoir:megaphone"></iconify-icon><span style="margin: 0 0 0 10px;">Announcement</span></a>
-                    <a type="button" class="text-break d-flex flex-row align-items-center btn menu-btn btn-primary rounded-2" data-bs-toggle="modal" data-bs-target="#enrollmentModal"><iconify-icon class="menu-icon ph-icon" icon="iconoir:notes"></iconify-icon><span style="margin: 0 0 0 10px;">Enrollment</span></a>
-                    <a type="button" class="text-break d-flex flex-row align-items-center btn menu-btn btn-primary rounded-2"><iconify-icon class="menu-icon ph-icon" icon="ant-design:dashboard-outlined"></iconify-icon><span style="margin: 0 0 0 10px;">Dashboard</span></a>
-                    <a type="button" class="text-break d-flex flex-row align-items-center btn menu-btn btn-primary rounded-2" data-bs-toggle="modal" data-bs-target="#studentRecordModal"><iconify-icon class="menu-icon ph-icon" icon="material-symbols:list-alt-outline"></iconify-icon><span style="margin: 0 0 0 10px;">Student Record</span></a>
-                    <a type="button" class="text-break d-flex flex-row align-items-center btn menu-btn btn-primary rounded-2" data-bs-toggle="modal" data-bs-target="#studentRecordModal"><iconify-icon class="menu-icon ph-icon" icon="material-symbols:list-alt-outline"></iconify-icon><span style="margin: 0 0 0 10px;">Upload Schedule</span></a>
+                <div class="menu p-4 rounded-4" style="height: 520px;">
+                    <div class="overflow-y-scroll d-flex flex-column row-gap-4 px-1" style="height: 470px;">
+                        <a type="button" class="text-break d-flex flex-row align-items-center btn menu-btn btn-primary rounded-2" data-bs-toggle="modal" data-bs-target="#announcementModal"><iconify-icon class="menu-icon ph-icon" icon="iconoir:megaphone"></iconify-icon><span style="margin: 0 0 0 10px;">Announcement</span></a>
+                        <a type="button" class="text-break d-flex flex-row align-items-center btn menu-btn btn-primary rounded-2" data-bs-toggle="modal" data-bs-target="#enrollmentModal"><iconify-icon class="menu-icon ph-icon" icon="iconoir:notes"></iconify-icon><span style="margin: 0 0 0 10px;">Enrollment</span></a>
+                        <a type="button" class="text-break d-flex flex-row align-items-center btn menu-btn btn-primary rounded-2"><iconify-icon class="menu-icon ph-icon" icon="ant-design:dashboard-outlined"></iconify-icon><span style="margin: 0 0 0 10px;">Dashboard</span></a>
+                        <a type="button" class="text-break d-flex flex-row align-items-center btn menu-btn btn-primary rounded-2" data-bs-toggle="modal" data-bs-target="#studentRecordModal"><iconify-icon class="menu-icon ph-icon" icon="material-symbols:list-alt-outline"></iconify-icon><span style="margin: 0 0 0 10px;">Student Record</span></a>
+                        <a type="button" class="text-break d-flex flex-row align-items-center btn menu-btn btn-primary rounded-2" data-bs-toggle="modal" data-bs-target="#uploadSchedule"><iconify-icon class="menu-icon ph-icon" icon="material-symbols:list-alt-outline"></iconify-icon><span style="margin: 0 0 0 10px;">Upload Schedule</span></a>
+                    </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="mv-scroll rounded-4 p-2" style="height: 520px">
                     <!-- Mission and Vision  -->
-                    <div class="mission-vision rounded-4 p-4 overflow-auto" style="height: 440px;">
+                    <div class="mission-vision rounded-4 p-4 style="height: 440px;">
                         <p class="mission-title fw-bold text-center p-2">MISSION</p>
                         <div class="mission-container overflow-auto">
                             <p class="mission-text text-break lh-1 rounded-2 p-3">
@@ -99,7 +102,7 @@
             <div class="col-md-5">
                 <div class="announcement-scroll rounded-4 p-4" style="height: 520px">
                     <p class="announcement-title fs-4 fw-bold text-center p-2">ANNOUNCEMENT</p>
-                    <div class="announcement overflow-y-scroll" style="height: 383px;">
+                    <div class="announcement overflow-y-scroll" style="height: 385px;">
                         <?php
                         include "../connectDb.php";
 
@@ -124,7 +127,7 @@
                                         </div>
                                         <div class="row px-5 pt-4">
                                             <p class="fw-bold lh-base" style="color: black;"><?php echo htmlspecialchars($row['title']); ?></p>
-                                            <p class="lh-base text-truncate" style="color: black; white-space: pre-wrap; height: 18px;"><?php echo htmlspecialchars($row['announcement_text']); ?></p>
+                                            <p class="lh-base text-truncate" style="color: black; white-space: pre-wrap; height: 20px;"><?php echo htmlspecialchars($row['announcement_text']); ?></p>
                                         </div>
                                         <div class="row px-5 pb-4 justify-content-center">
                                             <?php
