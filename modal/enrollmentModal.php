@@ -189,7 +189,11 @@
                                             echo "</tr>";
                                         }
                                     } else {
-                                        echo "<tr><td colspan='4'>No records found.</td></tr>";
+                                        echo "<tr><td class='text-center'></td>
+                                        <td class='text-end'  style='width: 120px;'>No records found.</td>
+                                        <td></td>
+                                        <td></td>
+                                        </tr>";
                                     }
                                     ?>
 
