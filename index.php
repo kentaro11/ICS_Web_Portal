@@ -21,7 +21,7 @@
 
             <div class="rounded-bottom-4 card-body form-body text-white">
                 <h1 class="text-center mb-4">LOGIN</h1>
-                <form>
+                <form action="../function/loginAccount.php" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="userId" class="form-label">User ID</label>
                         <div class="input-group">
