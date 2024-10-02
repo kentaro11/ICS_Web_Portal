@@ -32,14 +32,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $progress_report_card = $upload_dir . basename($_FILES['progress_report_card']['name']);
     $medical_assessment = $upload_dir . basename($_FILES['medical_assessment']['name']);
 
-    // Move uploaded files to the designated directory
-    if (!move_uploaded_file($_FILES['student_picture']['tmp_name'], $student_picture) ||
-        !move_uploaded_file($_FILES['psa_birth_certificate']['tmp_name'], $psa_birth_certificate) ||
-        !move_uploaded_file($_FILES['progress_report_card']['tmp_name'], $progress_report_card) ||
-        !move_uploaded_file($_FILES['medical_assessment']['tmp_name'], $medical_assessment)) {
-        die("Error uploading files.");
-    }
-
     // Insert into parent table
     $parent_sql = "INSERT INTO parent (first_name, last_name, email, phone_number, address, role_id) VALUES ('$parent_first_name', '$parent_last_name', '$parent_email', $parent_contact, '$address', 2)";
     if ($conn->query($parent_sql) === TRUE) {
