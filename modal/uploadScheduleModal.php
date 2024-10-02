@@ -11,7 +11,7 @@
             </div>
             <div class="modal-body">
                 <div class="form-container">
-                    <form id="uploadScheduleForm" action="../function/.php" method="POST" enctype="multipart/form-data">
+                    <form id="uploadScheduleForm" action="../function/uploadSchedule.php" method="POST" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label for="gradeLevelSchedule" class="form-label">Grade Level</label>
                             <select class="form-select" id="gradeLevelSchedule" name="grade_level" required>
