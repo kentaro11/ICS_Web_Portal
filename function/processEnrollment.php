@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $parent_id = $conn->insert_id; // Get the last inserted parent ID
 
         // Insert into student table
-        $student_sql = "INSERT INTO student (first_name, middle_name, last_name, sex, date_of_birth, current_status, academic_year, parent_id, grade_level_id, section_id, role_id) VALUES ('$first_name', '$middle_name', '$last_name', '$sex', '$date_of_birth', 'active', '$academic_year', $parent_id, $grade_level, $section, 1)";
+        $student_sql = "INSERT INTO student (first_name, middle_name, last_name, sex, date_of_birth, current_status, academic_year, parent_id, grade_level_id, section_id, role_id) VALUES ('$first_name', '$middle_name', '$last_name', '$sex', '$date_of_birth', 'enrolled', '$academic_year', $parent_id, $grade_level, $section, 1)";
         if ($conn->query($student_sql) === TRUE) {
             $student_id = $conn->insert_id; // Get the last inserted student ID
 
