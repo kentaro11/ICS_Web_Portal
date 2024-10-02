@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         // Insert the LRN and hashed password into the student_credential table
-        $insert_credential_sql = "INSERT INTO student_credential (lrn, student_password) VALUES ($lrn, '$hashedPassword')";
+        $insert_credential_sql = "INSERT INTO student_credential (lrn, student_password, role_id) VALUES ($lrn, '$hashedPassword', 1)";
 
         if ($conn->query($insert_credential_sql) !== TRUE) {
             throw new Exception("Error inserting into student_credential: " . $conn->error);
