@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="../css/modal.css">
+<script src="../js/studentRecordDt.js"></script>
 
 <!-- Modal -->
 <div class="modal fade modal-xl" id="studentRecordModal" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -76,15 +77,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    $(document).ready(function() {
-        $('#studentRecord').DataTable({
-            "paging": true, // Enables pagination
-            "searching": true, // Enables searching
-            "ordering": false, // Enables column sorting
-            "info": true, // Displays information about the table
-            "select": true,
-        });
-    });
-</script>

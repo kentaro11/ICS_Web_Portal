@@ -2,6 +2,7 @@
 <script src="../js/gradeLevel.js"></script>
 <script src="../js/getId.js"></script>
 <script src="../js/enrollAlert.js"></script>
+<script src="../js/pendingDt.js"></script>
 
 <div class="modal fade modal-xl" id="enrollmentModal" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -232,15 +233,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    $(document).ready(function() {
-        $('#pendingTable').DataTable({
-            "paging": true, // Enables pagination
-            "searching": true, // Enables searching
-            "ordering": false, // Enables column sorting
-            "info": true,// Displays information about the table
-            "select": true,
-        });
-    });
-</script>
