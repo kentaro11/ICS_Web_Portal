@@ -7,6 +7,7 @@
     <title>Login Page</title>
     <?php include "partials/head.php" ?>
     <link rel="stylesheet" href="css/loginStyle.css">
+    <script src="js/eyeToggle.js"></script>
 </head>
 
 <body>
@@ -47,9 +48,6 @@
             </div>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/eyeToggle.js"></script>
 </body>
 
 </html>
