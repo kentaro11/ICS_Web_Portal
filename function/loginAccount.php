@@ -22,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Set session variables
             $_SESSION['user_id'] = $row['user_id'];
             $_SESSION['role_id'] = $row['role_id'];
+            $_SESSION['logged_in'] = True;
 
             // Redirect based on role_id
             switch ($row['role_id']) {
