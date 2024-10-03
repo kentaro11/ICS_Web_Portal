@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: index.php");
+    exit;
+}
+
+if ($_SESSION['role_id'] != 1) {
+    header("Location: index.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,11 +55,48 @@
                             <div class="student-section d-flex flex-row position-absolute bottom-0 start-0">
                                 <img src="../img/avatar.jpg" class="avatar" alt="Profile" style="width: 11%; height: 11%;">
                                 <div class="student-info d-flex flex-column justify-content-center">
-                                    <p class="info-bold text-start">DELA CRUZ, JUAN C.</p>
-                                    <p class="info-text text-start">Dela Cruz, Juan C.</p>
-                                    <p class="info-text text-start">LRN (123456789012)</p>
-                                    <p class="info-text text-start">Grade 1 - Hope</p>
-                                    <p class="en-status text-start">ENROLLED</p>
+                                    <?php
+                                    include "../connectDb.php";
+
+                                    // Prepare the query
+                                    $query = "SELECT CONCAT(s.last_name, ', ', s.first_name, ' ', LEFT(s.middle_name, 1), '.') AS full_name, 
+                                                     s.lrn AS lrn, 
+                                                     s.current_status AS current_status, 
+                                                     gl.grade_level AS grade_level, 
+                                                     sec.section_name AS section_name, 
+                                                     CONCAT(p.last_name, ', ', p.first_name, ' ', LEFT(p.middle_name, 1), '.') AS parent_name 
+                                              FROM student s 
+                                              LEFT JOIN section sec ON s.section_id = sec.section_id 
+                                              LEFT JOIN grade_level gl ON s.grade_level_id = gl.grade_level_id 
+                                              LEFT JOIN parent p ON s.parent_id = p.parent_id 
+                                              WHERE s.lrn = ?";
+                                    
+                                    // Prepare the statement to prevent SQL injection
+                                    $stmt = $conn->prepare($query);
+                                    
+                                    // Bind the session user_id to the query
+                                    $stmt->bind_param('s', $_SESSION['user_id']);
+                                    
+                                    // Execute the query
+                                    $stmt->execute();
+                                    $result = $stmt->get_result();
+                                    
+                                    if ($result->num_rows > 0) {
+                                        while ($row = $result->fetch_assoc()) { ?>
+                                            <p class="info-bold text-start text-uppercase"><?php echo htmlspecialchars($row['parent_name']); ?></p>
+                                            <p class="info-text text-start"><?php echo htmlspecialchars($row['full_name']); ?></p>
+                                            <p class="info-text text-start">LRN (<?php echo htmlspecialchars($row['lrn']); ?>)</p>
+                                            <p class="info-text text-start">Grade <?php echo htmlspecialchars($row['grade_level']); ?> - <?php echo htmlspecialchars($row['section_name']); ?></p>
+                                            <p class="en-status text-start text-uppercase"><?php echo htmlspecialchars($row['current_status']); ?></p>
+                                        <?php }
+                                    } else { ?>
+                                        <p class="info-bold text-start">No student found.</p>
+                                    <?php }
+                                    
+                                    // Close the statement
+                                    $stmt->close();
+                                    $conn->close();
+                                    ?>
                                 </div>
                             </div>
                         </div>
