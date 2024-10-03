@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (isset($_SESSION['logged_in']) != True) {
+    header("Location: ../index");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
