@@ -21,12 +21,12 @@
 
             <div class="rounded-bottom-4 card-body form-body text-white">
                 <h1 class="text-center mb-4">LOGIN</h1>
-                <form action="../function/loginAccount.php" method="POST" enctype="multipart/form-data">
+                <form action="function/loginAccount.php" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="userId" class="form-label">User ID</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="bi bi-person"></i></span>
-                            <input type="text" class="form-control" id="userId" placeholder="Enter User ID">
+                            <input type="text" class="form-control" id="userId" name="user_id" placeholder="Enter User ID">
                         </div>
                     </div>
 
@@ -34,7 +34,7 @@
                         <label for="password" class="form-label">Password</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="bi bi-lock"></i></span>
-                            <input type="password" class="rounded-end-2 form-control" id="password" placeholder="Enter Password" style="padding-right: 30px;">
+                            <input type="password" class="rounded-end-2 form-control" id="password" placeholder="Enter Password" name="user_password" style="padding-right: 30px;">
                             <i class="position-absolute top-50 end-0 translate-middle-y bi bi-eye-slash" style="color: black; padding-right: 8px;" id="togglePasswordIcon" onclick="togglePassword()"></i>
                         </div>
                         <small class="form-text text-light">* Password is case sensitive</small>
@@ -42,7 +42,7 @@
                     </div>
 
                     <div class="d-flex justify-content-center">
-                        <button type="submit" class="btn btn-warning" style="border-radius: 20px;"><i class="bi bi-box-arrow-in-right"></i> Sign In</button>
+                        <button type="submit" class="btn btn-warning rounded-5"><i class="bi bi-box-arrow-in-right"></i> Sign In</button>
                     </div>
                 </form>
             </div>
