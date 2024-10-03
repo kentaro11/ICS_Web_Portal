@@ -1,13 +1,8 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['user_id'])) {
-    header("Location: index.php");
-    exit;
-}
-
-if ($_SESSION['role_id'] != 1) {
-    header("Location: index.php");
+if (isset($_SESSION['logged_in']) != True) {
+    header("Location: ../index");
     exit;
 }
 ?>
@@ -57,26 +52,26 @@ if ($_SESSION['role_id'] != 1) {
                                 <div class="student-info d-flex flex-column justify-content-center">
                                     <?php
                                     include "../connectDb.php";
-
                                     // Prepare the query
                                     $query = "SELECT CONCAT(s.last_name, ', ', s.first_name, ' ', LEFT(s.middle_name, 1), '.') AS full_name, 
                                                      s.lrn AS lrn, 
                                                      s.current_status AS current_status, 
                                                      gl.grade_level AS grade_level, 
                                                      sec.section_name AS section_name, 
+                                                     sec.section_id AS section_id,
                                                      CONCAT(p.last_name, ', ', p.first_name, ' ', LEFT(p.middle_name, 1), '.') AS parent_name 
                                               FROM student s 
                                               LEFT JOIN section sec ON s.section_id = sec.section_id 
                                               LEFT JOIN grade_level gl ON s.grade_level_id = gl.grade_level_id 
                                               LEFT JOIN parent p ON s.parent_id = p.parent_id 
                                               WHERE s.lrn = ?";
-                                    
+
                                     // Prepare the statement to prevent SQL injection
                                     $stmt = $conn->prepare($query);
-                                    
+
                                     // Bind the session user_id to the query
                                     $stmt->bind_param('s', $_SESSION['user_id']);
-                                    
+
                                     // Execute the query
                                     $stmt->execute();
                                     $result = $stmt->get_result();
@@ -88,11 +83,13 @@ if ($_SESSION['role_id'] != 1) {
                                             <p class="info-text text-start">LRN (<?php echo htmlspecialchars($row['lrn']); ?>)</p>
                                             <p class="info-text text-start">Grade <?php echo htmlspecialchars($row['grade_level']); ?> - <?php echo htmlspecialchars($row['section_name']); ?></p>
                                             <p class="en-status text-start text-uppercase"><?php echo htmlspecialchars($row['current_status']); ?></p>
-                                        <?php }
+                                        <?php 
+                                        $_SESSION['section_id'] = $row['section_id'];
+                                    }
                                     } else { ?>
                                         <p class="info-bold text-start">No student found.</p>
                                     <?php }
-                                    
+
                                     // Close the statement
                                     $stmt->close();
                                     $conn->close();
