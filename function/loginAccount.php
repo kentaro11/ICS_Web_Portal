@@ -2,64 +2,57 @@
 session_start();
 include '../connectDb.php'; // Modify with your database connection file
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $userId = $_POST['userId'];
-    $password = $_POST['password'];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Get form inputs
+    $userId = $_POST['user_id'];
+    $password = $_POST['user_password'];
 
-    // Escape inputs to prevent SQL Injection
+    // Sanitize input
     $userId = mysqli_real_escape_string($conn, $userId);
     $password = mysqli_real_escape_string($conn, $password);
 
-    // Check student_credential
-    $query = "SELECT * FROM student_credential WHERE user_id = '$userId' AND password = '$password'";
+    // Query to check if the user exists
+    $query = "SELECT * FROM account WHERE user_id = '$userId'";
     $result = mysqli_query($conn, $query);
-    if (mysqli_num_rows($result) > 0) {
-        $_SESSION['user'] = $userId;
-        header("Location: ../pages/parentDashboard.php");
-        exit();
-    }
 
-    // Check teacher_credential
-    $query = "SELECT * FROM teacher_credential WHERE user_id = '$userId' AND password = '$password'";
-    $result = mysqli_query($conn, $query);
-    if (mysqli_num_rows($result) > 0) {
-        $_SESSION['user'] = $userId;
-        header("Location: ../pages/teacherDashboard.php");
-        exit();
-    }
+    if (mysqli_num_rows($result) == 1) {
+        $row = mysqli_fetch_assoc($result);
+        // Verify the password
+        if (password_verify($password, $row['user_password'])) {
+            // Set session variables
+            $_SESSION['user_id'] = $row['user_id'];
+            $_SESSION['role_id'] = $row['role_id'];
 
-    // Check guidance_credential
-    $query = "SELECT * FROM guidance_credential WHERE user_id = '$userId' AND password = '$password'";
-    $result = mysqli_query($conn, $query);
-    if (mysqli_num_rows($result) > 0) {
-        $_SESSION['user'] = $userId;
-        header("Location: ../pages/guidanceDashboard.php");
-        exit();
+            // Redirect based on role_id
+            switch ($row['role_id']) {
+                case 1:
+                    header("Location: ../pages/parentDashboard.php");
+                    break;
+                case 3:
+                    header("Location: ../pages/teacherDashboard.php");
+                    break;
+                case 4:
+                    header("Location: ../pages/guidanceDashboard.php");
+                    break;
+                case 5:
+                    header("Location: ../pages/principalDashboard.php");
+                    break;
+                case 6:
+                    header("Location: ../pages/pdoDashboard.php");
+                    break;
+                default:
+                    // Redirect to a generic error page if the role is unknown
+                    header("Location: index.php");
+                    break;
+            }
+            exit();
+        } else {
+            // Invalid password
+            echo "Invalid password.";
+        }
+    } else {
+        // Invalid user ID
+        echo "User ID not found.";
     }
-
-    // Check principal_credential
-    $query = "SELECT * FROM principal_credential WHERE user_id = '$userId' AND password = '$password'";
-    $result = mysqli_query($conn, $query);
-    if (mysqli_num_rows($result) > 0) {
-        $_SESSION['user'] = $userId;
-        header("Location: ../pages/principalDashboard.php");
-        exit();
-    }
-
-    // Check pdo_credential
-    $query = "SELECT * FROM pdo_credential WHERE user_id = '$userId' AND password = '$password'";
-    $result = mysqli_query($conn, $query);
-    if (mysqli_num_rows($result) > 0) {
-        $_SESSION['user'] = $userId;
-        header("Location: ../pages/pdoDashboard.php");
-        exit();
-    }
-
-    // If no match is found, redirect to index.php with an error message
-    header("Location: ../index.php?error=Invalid credentials");
-    exit();
-} else {
-    header("Location: ../index.php");
-    exit();
 }
 ?>
