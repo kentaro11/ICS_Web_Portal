@@ -47,10 +47,42 @@ if (isset($_SESSION['logged_in']) != True) {
                         <div class="col-md-6">
                             <div class="student-section d-flex flex-row position-absolute bottom-0 start-0">
                                 <img src="../img/avatar.jpg" class="avatar" alt="Profile" style="width: 11%; height: 11%;">
-                                <div class="student-info d-flex flex-column justify-content-center">
-                                    <p class="info-bold text-start">DELA CRUZ, JUAN C.</p>
-                                    <p class="info-text text-start">ID (123456)</p>
-                                    <p class="info-text text-start">Teacher I</p>
+                                <div class="teacher-info d-flex flex-column justify-content-center">
+                                <?php
+                                    include "../connectDb.php";
+                                    // Prepare the query
+                                    $query = "SELECT CONCAT(t.last_name, ', ', t.first_name, ' ', LEFT(t.middle_name, 1), '.') AS full_name, 
+                                                     t.teacher_id AS teacher_id,
+                                                     r.rank_name AS rank_name
+                                              FROM teacher t
+                                              LEFT JOIN rank r ON t.rank_id = r.rank_id
+                                              WHERE t.teacher_id = RIGHT(?, 4)";
+
+                                    // Prepare the statement to prevent SQL injection
+                                    $stmt = $conn->prepare($query);
+
+                                    // Bind the session user_id to the query
+                                    $stmt->bind_param('s', $_SESSION['user_id']);
+
+                                    // Execute the query
+                                    $stmt->execute();
+                                    $result = $stmt->get_result();
+                                    
+                                    if ($result->num_rows > 0) {
+                                        while ($row = $result->fetch_assoc()) { ?>
+                                            <p class="info-bold text-start text-uppercase"><?php echo htmlspecialchars($row['full_name']); ?></p>
+                                            <p class="info-text text-start">ICS-TCH<?php echo htmlspecialchars($row['teacher_id']); ?></p>
+                                            <p class="info-text text-start"><?php echo htmlspecialchars($row['rank_name']); ?></p>
+                                        <?php
+                                    }
+                                    } else { ?>
+                                        <p class="info-bold text-start">No student found.</p>
+                                    <?php }
+
+                                    // Close the statement
+                                    $stmt->close();
+                                    $conn->close();
+                                    ?>
                                 </div>
                             </div>
                         </div>
