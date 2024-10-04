@@ -14,9 +14,9 @@ if (isset($_SESSION['logged_in']) != True) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ICS - Teacher Dashboard</title>
-    <?php include "../partials/head.php"?>
-    <?php include "../modal/inputGradesModal.php"?>
-    <?php include "../modal/learningMaterialsModal.php"?>
+    <?php include "../partials/head.php" ?>
+    <?php include "../modal/inputGradesModal.php" ?>
+    <?php include "../modal/learningMaterialsModal.php" ?>
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/body.css">
     <link rel="stylesheet" href="../css/footer.css">
@@ -48,13 +48,15 @@ if (isset($_SESSION['logged_in']) != True) {
                             <div class="student-section d-flex flex-row position-absolute bottom-0 start-0">
                                 <img src="../img/avatar.jpg" class="avatar" alt="Profile" style="width: 11%; height: 11%;">
                                 <div class="teacher-info d-flex flex-column justify-content-center">
-                                <?php
+                                    <?php
                                     include "../connectDb.php";
                                     // Prepare the query
                                     $query = "SELECT CONCAT(t.last_name, ', ', t.first_name, ' ', LEFT(t.middle_name, 1), '.') AS full_name, 
                                                      t.teacher_id AS teacher_id,
-                                                     r.rank_name AS rank_name
+                                                     r.rank_name AS rank_name,
+                                                     sec.section_id as section_id
                                               FROM teacher t
+                                              LEFT JOIN section sec ON t.section_id = sec.section_id
                                               LEFT JOIN rank r ON t.rank_id = r.rank_id
                                               WHERE t.teacher_id = RIGHT(?, 4)";
 
@@ -67,14 +69,15 @@ if (isset($_SESSION['logged_in']) != True) {
                                     // Execute the query
                                     $stmt->execute();
                                     $result = $stmt->get_result();
-                                    
+
                                     if ($result->num_rows > 0) {
                                         while ($row = $result->fetch_assoc()) { ?>
                                             <p class="info-bold text-start text-uppercase"><?php echo htmlspecialchars($row['full_name']); ?></p>
                                             <p class="info-text text-start">ICS-TCH<?php echo htmlspecialchars($row['teacher_id']); ?></p>
                                             <p class="info-text text-start"><?php echo htmlspecialchars($row['rank_name']); ?></p>
                                         <?php
-                                    }
+                                            $_SESSION['section_id'] = $row['section_id'];
+                                        }
                                     } else { ?>
                                         <p class="info-bold text-start">No student found.</p>
                                     <?php }
