@@ -1,7 +1,7 @@
 $(document).ready(function () {
     // Fetch grade levels on page load
     $.ajax({
-      url: "../function/fetch_grade_levels.php", // Path to your PHP file for grade levels
+      url: "../function/selectGradeLevels.php", // Path to your PHP file for grade levels
       type: "GET",
       dataType: "json",
       success: function (response) {
@@ -27,14 +27,14 @@ $(document).ready(function () {
       var gradeLevelId = $(this).val();
       console.log("Selected Grade Level ID:", gradeLevelId); // Debugging line
       $.ajax({
-        url: "../function/fetch_sections.php", // Path to your PHP file for sections
+        url: "../function/selectSections.php", // Path to your PHP file for sections
         type: "POST",
         data: { grade_level_id: gradeLevelId },
         dataType: "json",
         success: function (response) {
           console.log("Sections fetched successfully:", response); // Debugging line
           $("#sectionSelect").empty(); // Clear previous options
-          $("#sectionSelect").append("<option selected>Select</option>");
+          $("#sectionSelect").append("<option selected>Section</option>");
           $.each(response, function (index, section) {
             // Ensure the correct syntax here
             $("#sectionSelect").append(
