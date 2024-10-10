@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="../css/inputGradesModal.css">
 <script src="../js/gradeLevelMaterials.js"></script>
+<script src="..js/getUploadedMaterials.js"></script>
 
 <!-- Modal -->
 <div class="modal fade modal-xl" id="teacherMaterialsModal" dx` tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -58,11 +59,34 @@
                         <!-- Uploaded Section -->
                         <div class="card m-3 overflow-y-auto" style="height: 360px;">
                             <div class="card-body">
-                                <h5 class="card-title">Uploaded</h5>
-                                <div id="uploadedFiles">
-                                    <?php
-
-                                    ?>
+                                <div class="row position-relative">
+                                    <div class="col-md-8">
+                                        <h5 class="card-title">Uploaded</h5>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="position-absolute top-50 end-0 translate-middle-y pe-2">
+                                            <select class="form-select" id="sectionFilter" name="section_filter">
+                                                <option selected>Select</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="overflow-y" id="uploadedFiles" style="max-height: 295px;">
+                                    <div class="row column-gap-5 mt-3 mx-1 align-content-center position-relative rounded-3 border border-1" style="height: 40px;">
+                                        <div class="col-md-8 ms-2">
+                                            English.docx
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button class="btn btn-secondary position-absolute top-50 end-0 translate-middle-y border border-0 me-5" style="height: 40px; width: 50px; background-color: transparent;">
+                                                <i class="bi bi-download" style="color: black;"></i>
+                                            </button>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button class="btn btn-secondary position-absolute top-50 end-0 translate-middle-y border border-0" style="height: 40px; width: 50px; background-color: transparent;">
+                                                <i class="bi bi-trash" style="color: black;"></i>
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -71,5 +95,4 @@
             </div>
         </div>
     </div>
-</div>
 </div>
