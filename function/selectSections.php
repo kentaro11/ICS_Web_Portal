@@ -9,7 +9,7 @@ $grade_level_id = isset($_POST['grade_level_id']) ? (int)$_POST['grade_level_id'
 $user_id = $_SESSION['user_id'];
 // Prepare the SQL statement
 $sql = "SELECT sec.section_name AS section_name 
-FROM `teacher` t
+FROM teacher t
 LEFT JOIN section sec ON t.section_id = sec.section_id
 WHERE t.teacher_id = RIGHT(?, 4)";
 $stmt = $conn->prepare($sql);
