@@ -171,32 +171,34 @@
                                     $result = mysqli_query($conn, $query);
 
                                     if (mysqli_num_rows($result) > 0) {
-                                        while ($row = mysqli_fetch_assoc($result)) {
-                                            echo "<tr>";
-                                            echo "<td>" . htmlspecialchars($row['full_name']) . "</td>";
-                                            echo "<td>" . htmlspecialchars($row['grade_level']) . "</td>";
-                                            echo "<td>" . htmlspecialchars($row['section_name']) . "</td>";
-                                            echo "<td>
-                                                    <button class='btn btn-primary add-lrn-btn'
-                                                            data-bs-toggle='collapse' 
-                                                            href='#collapseExample' 
-                                                            role='button' 
-                                                            aria-expanded='false' 
-                                                            aria-controls='collapseExample'
-                                                            onclick='setStudentId(" . $row['student_id_lrn'] . ")'>
+                                        while ($row = mysqli_fetch_assoc($result)) { ?>
+                                            <tr>
+                                                <td> <?php htmlspecialchars($row['full_name']) ?> </td>
+                                                <td> <?php htmlspecialchars($row['grade_level']) ?> </td>
+                                                <td> <?php htmlspecialchars($row['section_name']) ?> </td>
+                                                <td>
+                                                    <button class="btn btn-primary add-lrn-btn"
+                                                        data-bs-toggle="collapse"
+                                                        href="#collapseExample"
+                                                        role="button"
+                                                        aria-expanded="false"
+                                                        aria-controls="collapseExample"
+                                                        onclick="setStudentId(<?php $row['student_id_lrn'] ?>)">
                                                         Add LRN
                                                     </button>
-                                                </td>";
-                                            echo "</tr>";
+                                                </td>
+                                            </tr>
+                                        <?php
                                         }
-                                    } else {
-                                        echo "<tr><td class='text-center'></td>
-                                        <td class='text-end'  style='width: 120px;'>No records found.</td>
-                                        <td></td>
-                                        <td></td>
-                                        </tr>";
-                                    }
-                                    ?>
+                                    } else { ?>
+                                        <tr>
+                                            <td class="text-center"></td>
+                                            <td class="text-end" style="width: 120px;">No records found.</td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr> <?php
+                                            }
+                                                ?>
 
                                 </tbody>
                             </table>
