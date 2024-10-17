@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +21,16 @@
             </div>
 
             <div class="rounded-bottom-4 card-body form-body text-white">
+                
                 <h1 class="text-center mb-4">LOGIN</h1>
+                <?php if (isset($_SESSION['error_message'])): ?>
+                    <div class="alert alert-danger alert-dismissible fade show d-flex align-items-center" role="alert" style="height: 40px; margin: 0 185px;">
+                        <?php echo $_SESSION['error_message']; ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="padding: 0.7rem;"></button>
+                    </div>
+                    <?php unset($_SESSION['error_message']); ?>
+                <?php endif; ?>
+                
                 <form action="function/loginAccount.php" method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="userId" class="form-label">User ID</label>
