@@ -75,7 +75,7 @@ if (isset($_SESSION['logged_in']) != True) {
                                     // Execute the query
                                     $stmt->execute();
                                     $result = $stmt->get_result();
-                                    
+
                                     if ($result->num_rows > 0) {
                                         while ($row = $result->fetch_assoc()) { ?>
                                             <p class="info-bold text-start text-uppercase"><?php echo htmlspecialchars($row['parent_name']); ?></p>
@@ -83,9 +83,9 @@ if (isset($_SESSION['logged_in']) != True) {
                                             <p class="info-text text-start">LRN (<?php echo htmlspecialchars($row['lrn']); ?>)</p>
                                             <p class="info-text text-start">Grade <?php echo htmlspecialchars($row['grade_level']); ?> - <?php echo htmlspecialchars($row['section_name']); ?></p>
                                             <p class="en-status text-start text-uppercase"><?php echo htmlspecialchars($row['current_status']); ?></p>
-                                        <?php 
-                                        $_SESSION['section_id'] = $row['section_id'];
-                                    }
+                                        <?php
+                                            $_SESSION['section_id'] = $row['section_id'];
+                                        }
                                     } else { ?>
                                         <p class="info-bold text-start">No student found.</p>
                                     <?php }
@@ -100,7 +100,11 @@ if (isset($_SESSION['logged_in']) != True) {
                         <!-- Sign Out -->
                         <div class="col-md-6">
                             <div class="so-section position-absolute bottom-0 end-0">
-                                <button type="button" class="btn so-btn btn-primary rounded-5"><i class="bi bi-box-arrow-in-right"></i> Sign Out</button>
+                                <form action="../function/logoutAccount.php" method="POST">
+                                    <button type="submit" class="btn so-btn btn-primary rounded-5">
+                                        <i class="bi bi-box-arrow-in-right"></i> Sign Out
+                                    </button>
+                                </form>
                             </div>
                         </div>
 

@@ -55,9 +55,7 @@ if (isset($_SESSION['logged_in']) != True) {
                                                      t.teacher_id AS teacher_id,
                                                      sub.subject_id AS subject_id,
                                                      r.rank_name AS rank_name,
-                                                     sec.section_id as section_id
                                               FROM teacher t
-                                              LEFT JOIN section sec ON t.section_id = sec.section_id
                                               LEFT JOIN subject sub ON t.subject_id = sub.subject_id
                                               LEFT JOIN rank r ON t.rank_id = r.rank_id
                                               WHERE t.teacher_id = RIGHT(?, 4)";
@@ -78,7 +76,6 @@ if (isset($_SESSION['logged_in']) != True) {
                                             <p class="info-text text-start">ICS-TCH<?php echo htmlspecialchars($row['teacher_id']); ?></p>
                                             <p class="info-text text-start"><?php echo htmlspecialchars($row['rank_name']); ?></p>
                                         <?php
-                                            $_SESSION['section_id'] = $row['section_id'];
                                             $_SESSION['subject_id'] = $row['subject_id'];
                                         }
                                     } else { ?>
@@ -95,7 +92,11 @@ if (isset($_SESSION['logged_in']) != True) {
                         <!-- Sign Out -->
                         <div class="col-md-6">
                             <div class="so-section position-absolute bottom-0 end-0">
-                                <button type="button" class="btn so-btn btn-primary rounded-5"><i class="bi bi-box-arrow-in-right"></i> Sign Out</button>
+                                <form action="../function/logoutAccount.php" method="POST">
+                                    <button type="submit" class="btn so-btn btn-primary rounded-5">
+                                        <i class="bi bi-box-arrow-in-right"></i> Sign Out
+                                    </button>
+                                </form>
                             </div>
                         </div>
 

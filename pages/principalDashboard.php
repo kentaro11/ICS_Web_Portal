@@ -55,7 +55,11 @@ if (isset($_SESSION['logged_in']) != True) {
                         <!-- Sign Out -->
                         <div class="col-md-6">
                             <div class="so-section position-absolute bottom-0 end-0">
-                                <button type="button" class="btn so-btn btn-primary rounded-5"><i class="bi bi-box-arrow-in-right"></i> Sign Out</button>
+                                <form action="../function/logoutAccount.php" method="POST">
+                                    <button type="submit" class="btn so-btn btn-primary rounded-5">
+                                        <i class="bi bi-box-arrow-in-right"></i> Sign Out
+                                    </button>
+                                </form>
                             </div>
                         </div>
 

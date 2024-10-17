@@ -15,7 +15,7 @@ if (isset($_SESSION['logged_in']) != True) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ICS - PDO Dashboard</title>
     <?php include "../partials/head.php" ?>
-    <?php include "../modal/calendarActivityModal.php"?>
+    <?php include "../modal/calendarActivityModal.php" ?>
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/body.css">
     <link rel="stylesheet" href="../css/footer.css">
@@ -56,7 +56,11 @@ if (isset($_SESSION['logged_in']) != True) {
                         <!-- Sign Out -->
                         <div class="col-md-6">
                             <div class="so-section position-absolute bottom-0 end-0">
-                                <button type="button" class="btn so-btn btn-primary rounded-5"><i class="bi bi-box-arrow-in-right"></i> Sign Out</button>
+                                <form action="../function/logoutAccount.php" method="POST">
+                                    <button type="submit" class="btn so-btn btn-primary rounded-5">
+                                        <i class="bi bi-box-arrow-in-right"></i> Sign Out
+                                    </button>
+                                </form>
                             </div>
                         </div>
 

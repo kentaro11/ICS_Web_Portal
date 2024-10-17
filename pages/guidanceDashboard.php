@@ -61,7 +61,11 @@ if (isset($_SESSION['logged_in']) != True) {
                         <!-- Sign Out -->
                         <div class="col-md-6">
                             <div class="so-section position-absolute bottom-0 end-0">
-                                <button type="button" class="btn so-btn btn-primary rounded-5"><i class="bi bi-box-arrow-in-right"></i> Sign Out</button>
+                                <form action="../function/logoutAccount.php" method="POST">
+                                    <button type="submit" class="btn so-btn btn-primary rounded-5">
+                                        <i class="bi bi-box-arrow-in-right"></i> Sign Out
+                                    </button>
+                                </form>
                             </div>
                         </div>
 
@@ -87,7 +91,7 @@ if (isset($_SESSION['logged_in']) != True) {
             <div class="col-md-4">
                 <div class="mv-scroll rounded-4 p-2" style="height: 520px">
                     <!-- Mission and Vision  -->
-                    <div class="mission-vision rounded-4 p-4 style="height: 440px;">
+                    <div class="mission-vision rounded-4 p-4 style=" height: 440px;">
                         <p class="mission-title fw-bold text-center p-2">MISSION</p>
                         <div class="mission-container overflow-auto">
                             <p class="mission-text text-break lh-1 rounded-2 p-3">
