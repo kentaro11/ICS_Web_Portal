@@ -22,38 +22,41 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Set session variables
             $_SESSION['user_id'] = $row['user_id'];
             $_SESSION['role_id'] = $row['role_id'];
-            $_SESSION['logged_in'] = True;
+            $_SESSION['logged_in'] = true;
 
             // Redirect based on role_id
             switch ($row['role_id']) {
                 case 1:
-                    header("Location: ../pages/parentDashboard.php");
+                    header("Location: ../pages/parentDashboard");
                     break;
                 case 3:
-                    header("Location: ../pages/teacherDashboard.php");
+                    header("Location: ../pages/teacherDashboard");
                     break;
                 case 4:
-                    header("Location: ../pages/guidanceDashboard.php");
+                    header("Location: ../pages/guidanceDashboard");
                     break;
                 case 5:
-                    header("Location: ../pages/principalDashboard.php");
+                    header("Location: ../pages/principalDashboard");
                     break;
                 case 6:
-                    header("Location: ../pages/pdoDashboard.php");
+                    header("Location: ../pages/pdoDashboard");
                     break;
                 default:
                     // Redirect to a generic error page if the role is unknown
-                    header("Location: index.php");
+                    header("Location: ../index");
                     break;
             }
             exit();
         } else {
             // Invalid password
-            echo "Invalid password.";
+            $_SESSION['error_message'] = "Invalid password.";
         }
     } else {
         // Invalid user ID
-        echo "User ID not found.";
+        $_SESSION['error_message'] = "User ID not found.";
     }
+
+    // Redirect back to login page with error message
+    header("Location: ../index");
+    exit();
 }
-?>
