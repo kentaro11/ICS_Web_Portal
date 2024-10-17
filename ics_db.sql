@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 07, 2024 at 04:56 PM
+-- Host: 127.0.0.1:3308
+-- Generation Time: Oct 17, 2024 at 05:00 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -710,6 +710,7 @@ CREATE TABLE `teacher` (
   `last_name` varchar(100) NOT NULL,
   `email` varchar(100) DEFAULT NULL,
   `section_id` int(11) NOT NULL,
+  `subject_id` int(11) NOT NULL,
   `role_id` int(11) NOT NULL,
   `rank_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -718,25 +719,25 @@ CREATE TABLE `teacher` (
 -- Dumping data for table `teacher`
 --
 
-INSERT INTO `teacher` (`teacher_id`, `first_name`, `middle_name`, `last_name`, `email`, `section_id`, `role_id`, `rank_id`) VALUES
-(3001, 'Jann', 'Angelo', 'Dimano', 'jannangelodimaano@gmail.com', 1, 3, 10),
-(3002, 'Emily', 'Santos', 'Reyes', 'emily.reyes@example.com', 2, 3, 1),
-(3003, 'Michael', 'Lopez', 'Flores', 'michael.flores@example.com', 3, 3, 3),
-(3004, 'Sarah', 'Dela Cruz', 'Mendoza', 'sarah.mendoza@example.com', 4, 3, 9),
-(3005, 'David', 'Mercado', 'Gonzalez', 'david.gonzalez@example.com', 5, 3, 11),
-(3006, 'Jessica', 'Luna', 'Torres', 'jessica.torres@example.com', 6, 3, 3),
-(3007, 'Robert', 'Salvador', 'Bautista', 'robert.bautista@example.com', 7, 3, 5),
-(3008, 'Laura', 'Buenaventura', 'Aquino', 'laura.aquino@example.com', 8, 3, 3),
-(3009, 'James', 'Cabrera', 'Ramos', 'james.ramos@example.com', 9, 3, 13),
-(3010, 'Linda', 'Garcia', 'Villanueva', 'linda.villanueva@example.com', 10, 3, 3),
-(3011, 'Mark', 'Diaz', 'Delos Santos', 'mark.delossantos@example.com', 11, 3, 13),
-(3012, 'Anna', 'Pascual', 'Gomez', 'anna.gomez@example.com', 12, 3, 4),
-(3013, 'Brian', 'Manalang', 'Padilla', 'brian.padilla@example.com', 13, 3, 6),
-(3014, 'Elizabeth', 'Soriano', 'Castro', 'elizabeth.castro@example.com', 14, 3, 5),
-(3015, 'Steven', 'Navarro', 'Rivera', 'steven.rivera@example.com', 15, 3, 7),
-(3016, 'Amy', 'Fernandez', 'Ortega', 'amy.ortega@example.com', 16, 3, 7),
-(3017, 'Joshua', 'Marasigan', 'Lazaro', 'joshua.lazaro@example.com', 17, 3, 1),
-(3018, 'Sophia', 'Ramos', 'Santiago', 'sophia.santiago@example.com', 18, 3, 7);
+INSERT INTO `teacher` (`teacher_id`, `first_name`, `middle_name`, `last_name`, `email`, `section_id`, `subject_id`, `role_id`, `rank_id`) VALUES
+(3001, 'Jann', 'Angelo', 'Dimano', 'jannangelodimaano@gmail.com', 1, 1, 3, 10),
+(3002, 'Emily', 'Santos', 'Reyes', 'emily.reyes@example.com', 2, 2, 3, 1),
+(3003, 'Michael', 'Lopez', 'Flores', 'michael.flores@example.com', 3, 3, 3, 3),
+(3004, 'Sarah', 'Dela Cruz', 'Mendoza', 'sarah.mendoza@example.com', 4, 4, 3, 9),
+(3005, 'David', 'Mercado', 'Gonzalez', 'david.gonzalez@example.com', 5, 5, 3, 11),
+(3006, 'Jessica', 'Luna', 'Torres', 'jessica.torres@example.com', 6, 6, 3, 3),
+(3007, 'Robert', 'Salvador', 'Bautista', 'robert.bautista@example.com', 7, 7, 3, 5),
+(3008, 'Laura', 'Buenaventura', 'Aquino', 'laura.aquino@example.com', 8, 8, 3, 3),
+(3009, 'James', 'Cabrera', 'Ramos', 'james.ramos@example.com', 9, 9, 3, 13),
+(3010, 'Linda', 'Garcia', 'Villanueva', 'linda.villanueva@example.com', 10, 10, 3, 3),
+(3011, 'Mark', 'Diaz', 'Delos Santos', 'mark.delossantos@example.com', 11, 11, 3, 13),
+(3012, 'Anna', 'Pascual', 'Gomez', 'anna.gomez@example.com', 12, 12, 3, 4),
+(3013, 'Brian', 'Manalang', 'Padilla', 'brian.padilla@example.com', 13, 13, 3, 6),
+(3014, 'Elizabeth', 'Soriano', 'Castro', 'elizabeth.castro@example.com', 14, 14, 3, 5),
+(3015, 'Steven', 'Navarro', 'Rivera', 'steven.rivera@example.com', 15, 15, 3, 7),
+(3016, 'Amy', 'Fernandez', 'Ortega', 'amy.ortega@example.com', 16, 16, 3, 7),
+(3017, 'Joshua', 'Marasigan', 'Lazaro', 'joshua.lazaro@example.com', 17, 17, 3, 1),
+(3018, 'Sophia', 'Ramos', 'Santiago', 'sophia.santiago@example.com', 18, 18, 3, 7);
 
 --
 -- Indexes for dumped tables
