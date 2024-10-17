@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../css/inputGradesModal.css">
+<link rel="stylesheet" href="../css/modal.css">
 <script src="../js/gradeLevelMaterials.js"></script>
 <script src="..js/getUploadedMaterials.js"></script>
 
