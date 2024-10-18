@@ -15,8 +15,12 @@
                             <img class="img-fluid" src="../img/avatar.jpg" alt="profilePicture" style="width: 100px;">
                         </div>
                         <div>
-                            <strong>JUAN C. DELA CRUZ</strong><br>
-                            <span>Guidance Counselor</span>
+                            <?php
+                            $full_name = $_SESSION['full_name'];
+                            $rank_name = $_SESSION['rank_name'];
+                            ?>
+                            <strong class="text-uppercase"><?php echo "$full_name"; ?></strong><br>
+                            <span><?php echo "$rank_name"; ?></span>
                         </div>
                     </div>
                     <div class="mb-3">
@@ -27,8 +31,8 @@
 
                             <div class="mb-3">
                                 <textarea type="text" class="form-control" id="announcementText"
-                                placeholder="Type Text" name="announcement_text" 
-                                style="height: 200px;" required></textarea>
+                                    placeholder="Type Text" name="announcement_text"
+                                    style="height: 200px;" required></textarea>
                             </div>
 
                             <div class="mb-3">
