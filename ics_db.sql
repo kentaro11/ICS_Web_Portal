@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3308
--- Generation Time: Oct 17, 2024 at 05:00 AM
+-- Host: 127.0.0.1
+-- Generation Time: Oct 18, 2024 at 08:09 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -504,11 +504,10 @@ INSERT INTO `schedule_list` (`id`, `title`, `description`, `start_datetime`, `en
 --
 
 CREATE TABLE `school_materials` (
-  `material_id` int(11) NOT NULL,
+  `school_materials_id` int(11) NOT NULL,
   `teacher_id` int(11) NOT NULL,
-  `subject_id` int(11) NOT NULL,
   `section_id` int(11) NOT NULL,
-  `school_materials` varchar(100) NOT NULL
+  `school_materials` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -739,6 +738,78 @@ INSERT INTO `teacher` (`teacher_id`, `first_name`, `middle_name`, `last_name`, `
 (3017, 'Joshua', 'Marasigan', 'Lazaro', 'joshua.lazaro@example.com', 17, 17, 3, 1),
 (3018, 'Sophia', 'Ramos', 'Santiago', 'sophia.santiago@example.com', 18, 18, 3, 7);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `teacher_section`
+--
+
+CREATE TABLE `teacher_section` (
+  `teacher_section_id` int(11) NOT NULL,
+  `teacher_id` int(11) NOT NULL,
+  `section_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `teacher_section`
+--
+
+INSERT INTO `teacher_section` (`teacher_section_id`, `teacher_id`, `section_id`) VALUES
+(1, 3001, 1),
+(2, 3001, 2),
+(3, 3001, 3),
+(4, 3002, 1),
+(5, 3002, 2),
+(6, 3002, 3),
+(7, 3003, 1),
+(8, 3003, 2),
+(9, 3003, 3),
+(10, 3004, 4),
+(11, 3004, 5),
+(12, 3004, 6),
+(13, 3005, 4),
+(14, 3005, 5),
+(15, 3005, 6),
+(16, 3006, 4),
+(17, 3006, 5),
+(18, 3006, 6),
+(19, 3007, 7),
+(20, 3007, 8),
+(21, 3007, 9),
+(22, 3008, 7),
+(23, 3008, 8),
+(24, 3008, 9),
+(25, 3009, 7),
+(26, 3009, 8),
+(27, 3009, 9),
+(28, 3010, 10),
+(29, 3010, 11),
+(30, 3010, 12),
+(31, 3011, 10),
+(32, 3011, 11),
+(33, 3011, 12),
+(34, 3012, 10),
+(35, 3012, 11),
+(36, 3012, 12),
+(37, 3013, 13),
+(38, 3013, 14),
+(39, 3013, 15),
+(40, 3014, 13),
+(41, 3014, 14),
+(42, 3014, 15),
+(43, 3015, 13),
+(44, 3015, 14),
+(45, 3015, 15),
+(46, 3016, 16),
+(47, 3016, 17),
+(48, 3016, 18),
+(49, 3017, 16),
+(50, 3017, 17),
+(51, 3017, 18),
+(52, 3018, 16),
+(53, 3018, 17),
+(54, 3018, 18);
+
 --
 -- Indexes for dumped tables
 --
@@ -850,9 +921,7 @@ ALTER TABLE `schedule_list`
 -- Indexes for table `school_materials`
 --
 ALTER TABLE `school_materials`
-  ADD PRIMARY KEY (`material_id`),
-  ADD KEY `subject_id` (`subject_id`),
-  ADD KEY `section_id` (`section_id`);
+  ADD PRIMARY KEY (`school_materials_id`);
 
 --
 -- Indexes for table `section`
@@ -897,6 +966,12 @@ ALTER TABLE `teacher`
   ADD PRIMARY KEY (`teacher_id`),
   ADD KEY `role_id` (`role_id`),
   ADD KEY `subject_id` (`section_id`);
+
+--
+-- Indexes for table `teacher_section`
+--
+ALTER TABLE `teacher_section`
+  ADD PRIMARY KEY (`teacher_section_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -990,7 +1065,7 @@ ALTER TABLE `schedule_list`
 -- AUTO_INCREMENT for table `school_materials`
 --
 ALTER TABLE `school_materials`
-  MODIFY `material_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `school_materials_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `section`
@@ -1027,6 +1102,12 @@ ALTER TABLE `subject`
 --
 ALTER TABLE `teacher`
   MODIFY `teacher_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3019;
+
+--
+-- AUTO_INCREMENT for table `teacher_section`
+--
+ALTER TABLE `teacher_section`
+  MODIFY `teacher_section_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- Constraints for dumped tables
@@ -1094,13 +1175,6 @@ ALTER TABLE `pdo`
 --
 ALTER TABLE `principal`
   ADD CONSTRAINT `principal_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `role` (`role_id`);
-
---
--- Constraints for table `school_materials`
---
-ALTER TABLE `school_materials`
-  ADD CONSTRAINT `school_materials_ibfk_1` FOREIGN KEY (`subject_id`) REFERENCES `subject` (`subject_id`),
-  ADD CONSTRAINT `school_materials_ibfk_2` FOREIGN KEY (`section_id`) REFERENCES `section` (`section_id`);
 
 --
 -- Constraints for table `student`
