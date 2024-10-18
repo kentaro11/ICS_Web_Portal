@@ -5,6 +5,7 @@
     --gold-hover: #C69925;
     --green: #1BBC3F;
     --red: #BC381B;
+    --black: #0D0D0D;
 
     --header1: 36px;
     --header2: 32px;
@@ -48,11 +49,6 @@ p {
 .logo-section {
     margin: 2% 0 0 4%;
     gap: 30px;
-}
-
-.student-section {
-    margin: 0 0 3% 4%;
-    gap: 20px;
 }
 
 .so-section {
