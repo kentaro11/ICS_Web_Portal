@@ -36,9 +36,6 @@
                                         <i class="bi bi-pencil"></i>
                                     </button>
 
-
-
-                                    <!-- Delete Button -->
                                     <!-- Delete Button -->
                                     <button class="btn position-absolute top-0 end-0 m-2 border-0"
                                         style="background-color: transparent; color: black;"
