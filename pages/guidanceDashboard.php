@@ -98,6 +98,8 @@ if (isset($_SESSION['logged_in']) != True) {
                                             <p class="info-text text-start">ICS-GUI<?php echo htmlspecialchars($row['guidance_id']); ?></p>
                                             <p class="info-text text-start"><?php echo htmlspecialchars($row['rank_name']); ?></p>
                                         <?php
+                                            $_SESSION['full_name'] = $row['full_name'];
+                                            $_SESSION['rank_name'] = $row['rank_name'];
                                         }
                                     } else { ?>
                                         <p class="info-bold text-start">No guidance found.</p>
@@ -185,8 +187,8 @@ if (isset($_SESSION['logged_in']) != True) {
                                                 <img src="../img/avatar.jpg" alt="profilePic" style="width: 70px;">
                                             </div>
                                             <div class="col-6">
-                                                <strong>JUAN C. DELA CRUZ</strong><br>
-                                                <span>Guidance Counselor</span><br>
+                                                <strong class="text-uppercase"><?php echo htmlspecialchars($row['full_name']); ?></strong><br>
+                                                <span><?php echo htmlspecialchars($row['rank_name']); ?></span><br>
                                                 <span class="fst-italic"><?php echo htmlspecialchars($row['created_at']); ?></span>
                                             </div>
                                         </div>
