@@ -53,8 +53,8 @@
                                             <img src="../img/avatar.jpg" alt="profilePic" style="width: 100px;">
                                         </div>
                                         <div class="col-6">
-                                            <strong>JUAN C. DELA CRUZ</strong><br>
-                                            <span>Guidance Counselor</span><br>
+                                            <strong class="text-uppercase"><?php echo htmlspecialchars($row['full_name']); ?></strong><br>
+                                            <span><?php echo htmlspecialchars($row['rank_name']); ?></span><br>
                                             <span class="fst-italic"><?php echo htmlspecialchars($row['created_at']); ?></span>
                                         </div>
                                     </div>
