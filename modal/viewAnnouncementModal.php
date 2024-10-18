@@ -33,7 +33,7 @@
                                         data-announcement-text="<?php echo htmlspecialchars($row['announcement_text'], ENT_QUOTES); ?>"
                                         onclick="editAnnouncement(this)"
                                         style="background-color: transparent; color: black; margin: 0 40px 0 0;">
-                                        <i class="bi bi-pencil"></i>
+                                        <i class="bi bi-pencil-square"></i>
                                     </button>
 
                                     <!-- Delete Button -->
@@ -91,7 +91,8 @@
 
                 <!-- Edit Announcement -->
                 <div class="fade" id="collapseExample">
-                    <div class="card card-body position-absolute top-50 start-50 translate-middle" style="width: 900px; height: 350px;">
+                    <div class="card card-body position-absolute top-50 start-50 translate-middle" style="width: 900px; height: 385px;">
+                        <h2 class="text-center">EDIT ANNOUNCEMENT</h2>
                         <form action="../function/editAnnouncement.php" method="POST" enctype="multipart/form-data" onsubmit="cleanTextBeforeSubmit()">
                             <input type="hidden" id="editAnnouncementId" name="announcement_id" value="">
                             <div class="mb-3">
