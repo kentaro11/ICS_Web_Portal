@@ -16,6 +16,7 @@ if (isset($_SESSION['logged_in']) != True) {
     <title>ICS - PDO Dashboard</title>
     <?php include "../partials/head.php" ?>
     <?php include "../modal/calendarActivityModal.php" ?>
+    <?php include "../modal/viewAnnouncementModal.php" ?>
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/body.css">
     <link rel="stylesheet" href="../css/footer.css">
@@ -23,6 +24,26 @@ if (isset($_SESSION['logged_in']) != True) {
 
 <body>
     <div class="container mt-4">
+        <?php
+        // Check if there is a SweetAlert message in the session
+        if (isset($_SESSION['swal_message'])) {
+            $swalType = $_SESSION['swal_message']['type'];
+            $swalTitle = $_SESSION['swal_message']['title'];
+
+            // Output the JavaScript to trigger the SweetAlert
+            echo "<script>
+            Swal.fire({
+                icon: '$swalType',
+                title: '$swalTitle',
+                confirmButtonText: 'OK'
+            });
+        </script>";
+
+            // Clear the session variable to prevent the message from showing again
+            unset($_SESSION['swal_message']);
+        }
+        ?>
+
         <!-- Header Section  -->
         <div class="row">
             <div class="col-md-12">
@@ -45,7 +66,7 @@ if (isset($_SESSION['logged_in']) != True) {
                         <!-- Information Section -->
                         <div class="col-md-6">
                             <div class="student-section d-flex flex-row position-absolute bottom-0 start-0">
-                                <img src="../img/avatar.jpg" class="avatar" alt="Profile" style="width: 11%; height: 11%;">
+                                <img src="../img/avatar.jpg" class="avatar m-4" alt="Profile" style="width: 11%; height: 11%;">
                                 <div class="student-info d-flex flex-column justify-content-center">
                                     <p class="info-bold text-start">DELA CRUZ, JUAN C.</p>
                                     <p class="info-text text-start">ID (123456)</p>
