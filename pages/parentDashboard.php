@@ -19,6 +19,8 @@ if (isset($_SESSION['logged_in']) != True) {
     <?php include "../modal/gradesModal.php" ?>
     <?php include "../modal/viewEcertificateModal.php" ?>
     <?php include "../modal/viewLearningMaterialsModal.php" ?>
+    <?php include "../modal/viewAnnouncementsModal.php" ?>
+    <?php include "../modal/viewMissionVisionModal.php" ?>
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/body.css">
     <link rel="stylesheet" href="../css/footer.css">
@@ -26,6 +28,26 @@ if (isset($_SESSION['logged_in']) != True) {
 
 <body>
     <div class="container mt-4">
+        <?php
+        // Check if there is a SweetAlert message in the session
+        if (isset($_SESSION['swal_message'])) {
+            $swalType = $_SESSION['swal_message']['type'];
+            $swalTitle = $_SESSION['swal_message']['title'];
+
+            // Output the JavaScript to trigger the SweetAlert
+            echo "<script>
+            Swal.fire({
+                icon: '$swalType',
+                title: '$swalTitle',
+                confirmButtonText: 'OK'
+            });
+        </script>";
+
+            // Clear the session variable to prevent the message from showing again
+            unset($_SESSION['swal_message']);
+        }
+        ?>
+
         <!-- Header Section  -->
         <div class="row">
             <div class="col-md-12">
@@ -47,9 +69,9 @@ if (isset($_SESSION['logged_in']) != True) {
                     <div class="row">
                         <!-- Information Section -->
                         <div class="col-md-6">
-                            <div class="student-section d-flex flex-row position-absolute bottom-0 start-0">
-                                <img src="../img/avatar.jpg" class="avatar" alt="Profile" style="width: 11%; height: 11%;">
-                                <div class="student-info d-flex flex-column justify-content-center">
+                            <div class="info-section d-flex flex-row position-absolute bottom-0 start-0">
+                                <img src="../img/avatar.jpg" class="avatar m-4" alt="Profile" style="width: 11%; height: 11%;">
+                                <div class="user-info d-flex flex-column justify-content-center">
                                     <?php
                                     include "../connectDb.php";
                                     // Prepare the query
@@ -143,7 +165,7 @@ if (isset($_SESSION['logged_in']) != True) {
                         </div>
                     </div>
                     <div class="text-center mt-4">
-                        <a href="" class="expand text-decoration-none">Expand</a>
+                        <a type="button" class="expand text-decoration-none" data-bs-toggle="modal" data-bs-target="#viewMissionVision">Expand</a>
                     </div>
                 </div>
             </div>
@@ -152,55 +174,68 @@ if (isset($_SESSION['logged_in']) != True) {
             <div class="col-md-5">
                 <div class="announcement-scroll rounded-4 p-4" style="height: 520px">
                     <p class="announcement-title fs-4 fw-bold text-center p-2">ANNOUNCEMENT</p>
-                    <div class="announcement overflow-scroll" style="height: 383px; overflow-x: hidden !important; padding-left: 20px">
-                        <div class="row announcement-section rounded-2 overflow-hidden" style="height: 300px; width: 100%;">
-                            <div class="col">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <img src="../img/avatar.jpg" class="mt-3" alt="Profile" style="width: 70%; border-radius: 50%; margin-left: 20px;">
-                                    </div>
-                                    <div class="col-md-9 mt-4">
-                                        <p class="name-text fw-bold">Dr. ALBERTO M. DE CHAVEZ</p>
-                                        <p class="name-text">Principal IV</p>
-                                        <p class="name-text fst-italic">Jan. 01, 2024</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <p class="announcement-text text-break lh-1 rounded-2 px-5 pb-2">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row announcement-section rounded-2 overflow-hidden mt-3" style="height: 300px; width: 100%;">
-                            <div class="col">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <img src="../img/avatar.jpg" class="mt-3" alt="Profile" style="width: 70%; border-radius: 50%; margin-left: 20px;">
-                                    </div>
-                                    <div class="col-md-9 mt-4">
-                                        <p class="name-text fw-bold">Dr. ALBERTO M. DE CHAVEZ</p>
-                                        <p class="name-text">Principal IV</p>
-                                        <p class="name-text fst-italic">Jan. 01, 2024</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="p-2">
-                                        <p class="announcement-text text-break lh-1 rounded-2 px-5 pb-2">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="announcement overflow-y-scroll" style="height: 385px;">
+                        <?php
+                        include "../connectDb.php";
 
+                        // Initialize query with base SQL
+                        $query = "SELECT * FROM announcements ORDER BY created_at DESC LIMIT 2";
+                        $result = mysqli_query($conn, $query);
+
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                        ?>
+                                <div class="row mx-1 mb-3 rounded-3 p-3" style="background-color: var(--white);">
+                                    <div class="col-md-12 mt-2">
+                                        <div class="row align-items-center">
+                                            <div class="col-6" style="width: 100px;">
+                                                <img src="../img/avatar.jpg" alt="profilePic" style="width: 70px;">
+                                            </div>
+                                            <div class="col-6">
+                                                <strong>JUAN C. DELA CRUZ</strong><br>
+                                                <span>Guidance Counselor</span><br>
+                                                <span class="fst-italic"><?php echo htmlspecialchars($row['created_at']); ?></span>
+                                            </div>
+                                        </div>
+                                        <div class="row px-5 pt-4">
+                                            <p class="fw-bold lh-base" style="color: black;"><?php echo htmlspecialchars($row['title']); ?></p>
+                                            <p class="lh-base text-truncate" style="color: black; white-space: pre-wrap; height: 20px;"><?php echo htmlspecialchars($row['announcement_text']); ?></p>
+                                        </div>
+                                        <div class="row px-5 pb-4 justify-content-center">
+                                            <?php
+                                            $file_path = htmlspecialchars($row['announcement_file']);
+                                            // Check if the file path is not null and not the empty directory path
+                                            if (!is_null($file_path) && $file_path !== '../announcement/') {
+                                                if (file_exists($file_path)) {
+                                            ?>
+                                                    <img class="img-thumbnail" src="<?php echo htmlspecialchars($row['announcement_file']); ?>" alt="announcementFile">
+                                                <?php
+                                                } else {
+                                                ?>
+                                                    <p>File not found: <?php echo $file_path; ?></p>'
+                                            <?php
+                                                }
+                                            }
+                                            ?>
+                                        </div>
+                                    </div>
+                                </div>
+                        <?php
+                            }
+                        } else {
+                            echo "<p>No announcements available.</p>";
+                        }
+                        ?>
                     </div>
+
                     <div class="text-center mt-4">
-                        <a href="" class="expand text-decoration-none">View More</a>
+                        <a type="button" class="expand text-decoration-none" data-bs-toggle="modal" data-bs-target="#viewAnnouncementModal">View More</a>
                     </div>
                 </div>
             </div>
+
         </div>
+
         <!-- Footer -->
         <div class="row mt-3 mb-4">
             <div class="col-md-12">
