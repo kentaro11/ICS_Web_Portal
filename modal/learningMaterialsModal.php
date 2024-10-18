@@ -33,15 +33,13 @@
                                         <label for="gradeLevel" class="form-label">Grade Level</label>
                                         <select id="gradeLevel" class="form-select" name="grade">
                                             <option selected disabled>Grade Level</option>
-                                            <!-- Add more grades as needed -->
                                         </select>
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="sectionLevel" class="form-label">Section</label>
-                                        <select id="sectionLevel" class="form-select" name="section">
+                                        <select id="sectionLevel" class="form-select" name="section_name">
                                             <option selected disabled>Section</option>
-                                            <!-- Add more sections as needed -->
                                         </select>
                                     </div>
 
@@ -77,9 +75,9 @@
                                             English.docx
                                         </div>
                                         <div class="col-md-2">
-                                            <button class="btn btn-secondary position-absolute top-50 end-0 translate-middle-y border border-0 me-5" style="height: 40px; width: 50px; background-color: transparent;">
+                                            <a class="btn btn-secondary position-absolute top-50 end-0 translate-middle-y border border-0 me-5" style="height: 40px; width: 50px; background-color: transparent;" download>
                                                 <i class="bi bi-download" style="color: black;"></i>
-                                            </button>
+                                            </a>
                                         </div>
                                         <div class="col-md-2">
                                             <button class="btn btn-secondary position-absolute top-50 end-0 translate-middle-y border border-0" style="height: 40px; width: 50px; background-color: transparent;">
