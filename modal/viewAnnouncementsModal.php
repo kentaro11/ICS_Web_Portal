@@ -21,7 +21,9 @@
                     if (mysqli_num_rows($result) > 0) {
                         while ($row = mysqli_fetch_assoc($result)) {
                     ?>
-            
+
+                            <div class="row shadow mx-2 mb-5 rounded-3">
+
                                 <div class="col-md-12">
                                     <div class="row align-items-center">
                                         <div class="col-6" style="width: 100px;">
@@ -35,7 +37,7 @@
                                     </div>
                                     <div class="row px-5 pt-2">
                                         <p class="fw-bold lh-base" style="color: black;"><?php echo htmlspecialchars($row['title']); ?></p>
-                                        <p class="lh-base" style="color: black; white-space: pre-wrap;" ><?php echo htmlspecialchars($row['announcement_text']); ?></p>
+                                        <p class="lh-base" style="color: black; white-space: pre-wrap;"><?php echo htmlspecialchars($row['announcement_text']); ?></p>
                                     </div>
                                     <div class="row px-5 pb-4 justify-content-center">
                                         <?php
@@ -63,7 +65,7 @@
                     }
                     ?>
                 </div>
-                
+
             </div>
         </div>
     </div>
