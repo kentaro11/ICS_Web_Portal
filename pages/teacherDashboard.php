@@ -24,6 +24,26 @@ if (isset($_SESSION['logged_in']) != True) {
 
 <body>
     <div class="container mt-4">
+        <?php
+        // Check if there is a SweetAlert message in the session
+        if (isset($_SESSION['swal_message'])) {
+            $swalType = $_SESSION['swal_message']['type'];
+            $swalTitle = $_SESSION['swal_message']['title'];
+
+            // Output the JavaScript to trigger the SweetAlert
+            echo "<script>
+            Swal.fire({
+                icon: '$swalType',
+                title: '$swalTitle',
+                confirmButtonText: 'OK'
+            });
+        </script>";
+
+            // Clear the session variable to prevent the message from showing again
+            unset($_SESSION['swal_message']);
+        }
+        ?>
+
         <!-- Header Section  -->
         <div class="row">
             <div class="col-md-12">
@@ -53,8 +73,7 @@ if (isset($_SESSION['logged_in']) != True) {
                                     // Prepare the query
                                     $query = "SELECT CONCAT(t.last_name, ', ', t.first_name, ' ', LEFT(t.middle_name, 1), '.') AS full_name, 
                                                      t.teacher_id AS teacher_id,
-                                                     sub.subject_id AS subject_id,
-                                                     r.rank_name AS rank_name,
+                                                     r.rank_name AS rank_name
                                               FROM teacher t
                                               LEFT JOIN subject sub ON t.subject_id = sub.subject_id
                                               LEFT JOIN rank r ON t.rank_id = r.rank_id
@@ -76,7 +95,6 @@ if (isset($_SESSION['logged_in']) != True) {
                                             <p class="info-text text-start">ICS-TCH<?php echo htmlspecialchars($row['teacher_id']); ?></p>
                                             <p class="info-text text-start"><?php echo htmlspecialchars($row['rank_name']); ?></p>
                                         <?php
-                                            $_SESSION['subject_id'] = $row['subject_id'];
                                         }
                                     } else { ?>
                                         <p class="info-bold text-start">No student found.</p>
