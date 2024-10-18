@@ -6,8 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Check if the file was uploaded without errors
     if (isset($_FILES['school_materials']) && $_FILES['school_materials']['error'] == 0) {
         $teacher_id = $_SESSION['user_id'];
-        $subject_id = $_SESSION['subject_id'];
-        $section_id = $_SESSION['section_id'];
+        $section_id = $_POST['section_name'];
 
         // Get the last 4 characters of the teacher_id
         $query = "SELECT teacher_id FROM teacher WHERE teacher_id = RIGHT(?, 4)";
@@ -31,26 +30,36 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Move the file to the specified directory
         if (move_uploaded_file($file_tmp, $file_destination)) {
             // Insert file details into the database
-            $query = "INSERT INTO school_materials (teacher_id, subject_id, section_id, school_materials) 
-                      VALUES (?, ?, ?, ?)";
+            $query = "INSERT INTO school_materials (teacher_id, section_id, school_materials) 
+                          VALUES (?, ?, ?)";
             $stmt = $conn->prepare($query);
-            $stmt->bind_param('iiis', $final_teacher_id, $subject_id, $section_id, $file_destination);
+            $stmt->bind_param('iis', $final_teacher_id, $section_id, $file_destination);
 
             if ($stmt->execute()) {
-                echo "File uploaded successfully! Last 4 characters of teacher_id: " . $last_four_chars;
-                // Redirect to the teacher dashboard after successful file upload
-                header("Location: ../pages/teacherDashboard.php");
-                exit(); // Ensure the script stops after redirect
+                $_SESSION['swal_message'] = [
+                    'type' => 'success',
+                    'title' => 'File uploaded successfully!',
+                ];
             } else {
-                echo "Failed to upload file to the database.";
+                $_SESSION['swal_message'] = [
+                    'type' => 'error',
+                    'title' => 'Failed to upload file to the database.',
+                ];
             }
         } else {
-            echo "Failed to move the uploaded file.";
+            $_SESSION['swal_message'] = [
+                'type' => 'error',
+                'title' => 'Failed to move the uploaded file.',
+            ];
         }
     } else {
-        echo "No file uploaded or there was an error uploading the file.";
+        $_SESSION['swal_message'] = [
+            'type' => 'error',
+            'title' => 'No file uploaded or there was an error uploading the file.',
+        ];
     }
-} else {
-    echo "Error: Invalid request method.";
+    // Redirect to teacher dashboard
+    header("Location: ../pages/teacherDashboard");
+    exit(); // Ensure the script stops after redirect
 }
 ?>
