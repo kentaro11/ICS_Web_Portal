@@ -28,6 +28,26 @@ if (isset($_SESSION['logged_in']) != True) {
 
 <body>
     <div class="container mt-4">
+        <?php
+        // Check if there is a SweetAlert message in the session
+        if (isset($_SESSION['swal_message'])) {
+            $swalType = $_SESSION['swal_message']['type'];
+            $swalTitle = $_SESSION['swal_message']['title'];
+
+            // Output the JavaScript to trigger the SweetAlert
+            echo "<script>
+            Swal.fire({
+                icon: '$swalType',
+                title: '$swalTitle',
+                confirmButtonText: 'OK'
+            });
+        </script>";
+
+            // Clear the session variable to prevent the message from showing again
+            unset($_SESSION['swal_message']);
+        }
+        ?>
+
         <!-- Header Section  -->
         <div class="row">
             <div class="col-md-12">
@@ -49,12 +69,44 @@ if (isset($_SESSION['logged_in']) != True) {
                     <div class="row">
                         <!-- Information Section -->
                         <div class="col-md-6">
-                            <div class="student-section d-flex flex-row position-absolute bottom-0 start-0">
-                                <img src="../img/avatar.jpg" class="avatar" alt="Profile" style="width: 11%; height: 11%;">
-                                <div class="student-info d-flex flex-column justify-content-center">
-                                    <p class="info-bold text-start">DELA CRUZ, JUAN C.</p>
-                                    <p class="info-text text-start">ID (123456)</p>
-                                    <p class="info-text text-start">Guidance Counselor</p>
+                            <div class="info-section d-flex flex-row position-absolute bottom-0 start-0">
+                                <img src="../img/avatar.jpg" class="avatar m-4" alt="Profile" style="width: 11%; height: 11%;">
+                                <div class="user-info d-flex flex-column justify-content-center">
+                                    <?php
+                                    include "../connectDb.php";
+                                    // Prepare the query
+                                    $query = "SELECT CONCAT(gui.last_name, ', ', gui.first_name, ' ', LEFT(gui.middle_name, 1), '.') AS full_name, 
+                                                     gui.guidance_id AS guidance_id,
+                                                     r.rank_name AS rank_name
+                                              FROM guidance gui
+                                              LEFT JOIN rank r ON gui.rank_id = r.rank_id
+                                              WHERE gui.guidance_id = RIGHT(?, 4)";
+
+                                    // Prepare the statement to prevent SQL injection
+                                    $stmt = $conn->prepare($query);
+
+                                    // Bind the session user_id to the query
+                                    $stmt->bind_param('s', $_SESSION['user_id']);
+
+                                    // Execute the query
+                                    $stmt->execute();
+                                    $result = $stmt->get_result();
+
+                                    if ($result->num_rows > 0) {
+                                        while ($row = $result->fetch_assoc()) { ?>
+                                            <p class="info-bold text-start text-uppercase"><?php echo htmlspecialchars($row['full_name']); ?></p>
+                                            <p class="info-text text-start">ICS-GUI<?php echo htmlspecialchars($row['guidance_id']); ?></p>
+                                            <p class="info-text text-start"><?php echo htmlspecialchars($row['rank_name']); ?></p>
+                                        <?php
+                                        }
+                                    } else { ?>
+                                        <p class="info-bold text-start">No guidance found.</p>
+                                    <?php }
+
+                                    // Close the statement
+                                    $stmt->close();
+                                    $conn->close();
+                                    ?>
                                 </div>
                             </div>
                         </div>
