@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 18, 2024 at 08:09 PM
+-- Host: 127.0.0.1:3308
+-- Generation Time: Oct 27, 2024 at 03:25 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -127,20 +127,23 @@ CREATE TABLE `announcements` (
   `announcement_text` text NOT NULL,
   `announcement_file` text DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `full_name` varchar(100) NOT NULL,
+  `rank_name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `announcements`
 --
 
-INSERT INTO `announcements` (`announcement_id`, `title`, `announcement_text`, `announcement_file`, `created_at`, `updated_at`) VALUES
-(1, 'Test 1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', '../announcement/Sisig.jpg', '2024-09-28 09:36:30', '2024-09-28 09:36:30'),
-(2, 'School Year 2024 Enrollment Scheduledsada', 'We are pleased to inform you that enrollment for the School Year 2024-2025 is now open! Key Dates: October 1: Start of Early Enrollment for returning students  October 15: Regular Enrollment for new students  November 5: Classes begin Please ensure to submit all the necessary requirements before the deadline. You can access the enrollment portal via the school’s website. Jelo\\\'s Sari-sari storernrnrnjfgjfgjf', '../announcement/', '2024-09-28 10:42:19', '2024-09-29 12:17:31'),
-(10, 'asdsadad', 'dsadad', '../announcement/', '2024-09-29 12:25:06', '2024-09-29 12:25:06'),
-(11, 'asdada', 'dasdadasd', '../announcement/Sisig.jpg', '2024-09-29 12:25:20', '2024-09-29 12:25:20'),
-(12, 'sdasdasd', 'GASFAJISFNAskLF\r\n\r\nASDASDSA\r\n\r\n\r\nSDASDA', '../announcement/', '2024-09-29 12:25:41', '2024-09-29 12:25:41'),
-(14, 'Lamangan 1', 'Nanlalamang na naman i2ng dalawa like wtF!!..\r\n\r\n\r\n#whenULIT\r\n#FKLEZZGo', '../announcement/', '2024-10-01 14:38:56', '2024-10-01 14:38:56');
+INSERT INTO `announcements` (`announcement_id`, `title`, `announcement_text`, `announcement_file`, `created_at`, `updated_at`, `full_name`, `rank_name`) VALUES
+(1, 'Test 1', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', '../announcement/Sisig.jpg', '2024-09-28 09:36:30', '2024-10-21 14:13:18', 'Maranan, Bien Q.', 'Principal IV'),
+(2, 'School Year 2024 Enrollment Scheduledsada', 'We are pleased to inform you that enrollment for the School Year 2024-2025 is now open! Key Dates: October 1: Start of Early Enrollment for returning students  October 15: Regular Enrollment for new students  November 5: Classes begin Please ensure to submit all the necessary requirements before the deadline. You can access the enrollment portal via the school’s website. Jelo\\\'s Sari-sari storernrnrnjfgjfgjf', '../announcement/', '2024-09-28 10:42:19', '2024-10-21 14:13:21', 'Maranan, Bien Q.', 'Principal IV'),
+(10, 'asdsadad', 'dsadad', '../announcement/', '2024-09-29 12:25:06', '2024-10-21 14:13:23', 'Maranan, Bien Q.', 'Principal IV'),
+(11, 'asdada', 'dasdadasd', '../announcement/Sisig.jpg', '2024-09-29 12:25:20', '2024-10-21 14:13:25', 'Maranan, Bien Q.', 'Principal IV'),
+(12, 'sdasdasd', 'GASFAJISFNAskLF\r\n\r\nASDASDSA\r\n\r\n\r\nSDASDA', '../announcement/', '2024-09-29 12:25:41', '2024-10-21 14:13:27', 'Maranan, Bien Q.', 'Principal IV'),
+(14, 'Lamangan 1', 'Nanlalamang na naman i2ng dalawa like wtF!!..\r\n\r\n\r\n#whenULIT\r\n#FKLEZZGo', '../announcement/', '2024-10-01 14:38:56', '2024-10-21 14:13:30', 'Maranan, Bien Q.', 'Principal IV'),
+(15, 'Hello', 'This is my announcement', '../announcement/', '2024-10-21 14:33:34', '2024-10-21 14:33:34', 'Bartolome, John Joshua C.', 'Guidance Counselor');
 
 -- --------------------------------------------------------
 
@@ -272,15 +275,16 @@ CREATE TABLE `guidance` (
   `middle_name` varchar(100) NOT NULL,
   `last_name` varchar(100) NOT NULL,
   `email` varchar(100) DEFAULT NULL,
-  `role_id` int(11) NOT NULL
+  `role_id` int(11) NOT NULL,
+  `rank_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `guidance`
 --
 
-INSERT INTO `guidance` (`guidance_id`, `first_name`, `middle_name`, `last_name`, `email`, `role_id`) VALUES
-(4001, 'John Joshua', 'Cabusay', 'Bartolome', 'jjbarako@gmail.com', 4);
+INSERT INTO `guidance` (`guidance_id`, `first_name`, `middle_name`, `last_name`, `email`, `role_id`, `rank_id`) VALUES
+(4001, 'John Joshua', 'Cabusay', 'Bartolome', 'jjbarako@gmail.com', 4, 18);
 
 -- --------------------------------------------------------
 
@@ -370,7 +374,8 @@ INSERT INTO `parent` (`parent_id`, `first_name`, `middle_name`, `last_name`, `em
 (2051, 'Greg', 'Tan', 'Quezada', 'greg.quezada@example.com', '09123456829', 'Brgy. San Pedro, Batangas City', 2),
 (2052, 'Grace', 'Gonzalez', 'Martinez', 'grace.martinez@example.com', '09123456830', 'Brgy. Pook, Batangas City', 2),
 (2053, 'Ferdinand', 'Cruz', 'Alarcon', 'ferdinand.alarcon@example.com', '09123456831', 'Brgy. Santo Niño, Batangas City', 2),
-(2054, 'Angelica', 'Bautista', 'Pineda', 'angelica.pineda@example.com', '09123456832', 'Brgy. Tinga Labac, Batangas City', 2);
+(2054, 'Angelica', 'Bautista', 'Pineda', 'angelica.pineda@example.com', '09123456832', 'Brgy. Tinga Labac, Batangas City', 2),
+(2055, 'Burnik', '', 'Panaligan', 'jannangelodimaano@gmail.com', '9454210467', 'Wawa, Batangas City', 2);
 
 -- --------------------------------------------------------
 
@@ -384,15 +389,16 @@ CREATE TABLE `pdo` (
   `middle_name` varchar(100) NOT NULL,
   `last_name` varchar(100) NOT NULL,
   `email` varchar(100) DEFAULT NULL,
-  `role_id` int(11) NOT NULL
+  `role_id` int(11) NOT NULL,
+  `rank_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `pdo`
 --
 
-INSERT INTO `pdo` (`pdo_id`, `first_name`, `middle_name`, `last_name`, `email`, `role_id`) VALUES
-(6001, 'Alvin Jan Josef', 'Zara', 'Espino', 'alvinespino@gmail.com', 6);
+INSERT INTO `pdo` (`pdo_id`, `first_name`, `middle_name`, `last_name`, `email`, `role_id`, `rank_id`) VALUES
+(6001, 'Alvin Jan Josef', 'Zara', 'Espino', 'alvinespino@gmail.com', 6, 19);
 
 -- --------------------------------------------------------
 
@@ -406,15 +412,16 @@ CREATE TABLE `principal` (
   `middle_name` varchar(100) NOT NULL,
   `last_name` varchar(100) NOT NULL,
   `email` varchar(100) DEFAULT NULL,
-  `role_id` int(11) NOT NULL
+  `role_id` int(11) NOT NULL,
+  `rank_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `principal`
 --
 
-INSERT INTO `principal` (`principal_id`, `first_name`, `middle_name`, `last_name`, `email`, `role_id`) VALUES
-(5001, 'Bien', 'Quintano', 'Maranan', 'bienqm@gmail.com', 5);
+INSERT INTO `principal` (`principal_id`, `first_name`, `middle_name`, `last_name`, `email`, `role_id`, `rank_id`) VALUES
+(5001, 'Bien', 'Quintano', 'Maranan', 'bienqm@gmail.com', 5, 17);
 
 -- --------------------------------------------------------
 
@@ -449,7 +456,8 @@ INSERT INTO `rank` (`rank_id`, `rank_name`) VALUES
 (15, 'Principal II'),
 (16, 'Principal III'),
 (17, 'Principal IV'),
-(18, 'Guidance Counselor');
+(18, 'Guidance Counselor'),
+(19, 'Project Development Office');
 
 -- --------------------------------------------------------
 
@@ -626,7 +634,8 @@ INSERT INTO `student` (`student_id`, `lrn`, `first_name`, `middle_name`, `last_n
 (1051, 100000000051, 'Leo', 'Luna', 'Luna', 'male', '2018-06-15', 'enrolled', '2024-2025', 2051, 6, 17, 1),
 (1052, 100000000052, 'Cathy', 'Luna', 'Luna', 'female', '2018-08-18', 'enrolled', '2024-2025', 2052, 6, 18, 1),
 (1053, 100000000053, 'Jay', 'Luna', 'Luna', 'male', '2018-09-27', 'enrolled', '2024-2025', 2053, 6, 18, 1),
-(1054, 100000000054, 'Nina', 'Luna', 'Luna', 'female', '2018-10-05', 'enrolled', '2024-2025', 2054, 6, 18, 1);
+(1054, 100000000054, 'Nina', 'Luna', 'Luna', 'female', '2018-10-05', 'enrolled', '2024-2025', 2054, 6, 18, 1),
+(1055, NULL, 'Laurence', 'Mendoza', 'Panaligan', 'male', '2002-10-21', 'enrolled', '2024-2025', 2055, 6, 17, 1);
 
 -- --------------------------------------------------------
 
@@ -659,6 +668,13 @@ CREATE TABLE `student_file` (
   `medical_assessment` varchar(100) DEFAULT NULL,
   `student_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `student_file`
+--
+
+INSERT INTO `student_file` (`student_file_id`, `student_picture`, `psa_birth_certificate`, `progress_report_card`, `medical_assessment`, `student_id`) VALUES
+(1, '../uploads/casual_white.jpg', '../uploads/DIMAANO-IT-413-Laboratory-Activity-3 CVSS.pdf', '../uploads/DIMAANO-IT-413-Laboratory-Activity-3 CVSS.pdf', '../uploads/DIMAANO-IT-413-Laboratory-Activity-3 CVSS.pdf', 1055);
 
 -- --------------------------------------------------------
 
@@ -987,7 +1003,7 @@ ALTER TABLE `account`
 -- AUTO_INCREMENT for table `announcements`
 --
 ALTER TABLE `announcements`
-  MODIFY `announcement_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `announcement_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `class_schedule`
@@ -1029,7 +1045,7 @@ ALTER TABLE `guidance`
 -- AUTO_INCREMENT for table `parent`
 --
 ALTER TABLE `parent`
-  MODIFY `parent_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2055;
+  MODIFY `parent_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2056;
 
 --
 -- AUTO_INCREMENT for table `pdo`
@@ -1047,7 +1063,7 @@ ALTER TABLE `principal`
 -- AUTO_INCREMENT for table `rank`
 --
 ALTER TABLE `rank`
-  MODIFY `rank_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `rank_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `role`
@@ -1077,7 +1093,7 @@ ALTER TABLE `section`
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1055;
+  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1056;
 
 --
 -- AUTO_INCREMENT for table `student_archives`
@@ -1089,7 +1105,7 @@ ALTER TABLE `student_archives`
 -- AUTO_INCREMENT for table `student_file`
 --
 ALTER TABLE `student_file`
-  MODIFY `student_file_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `student_file_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `subject`
