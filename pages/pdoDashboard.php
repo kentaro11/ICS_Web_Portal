@@ -7,7 +7,7 @@ if (isset($_SESSION['logged_in']) != True) {
 }
 ?>
 
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
